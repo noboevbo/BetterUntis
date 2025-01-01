@@ -1,9 +1,9 @@
 plugins {
 	id 'com.android.application'
-	id 'io.sentry.android.gradle' version '3.4.2'
+	id 'io.sentry.android.gradle' version '4.9.0'
 	id 'com.mikepenz.aboutlibraries.plugin'
 	id 'de.mannodermaus.android-junit5'
-	id 'com.google.devtools.ksp' version '1.8.21-1.0.11'
+	id 'com.google.devtools.ksp' version '1.9.24-1.0.20'
 }
 
 apply plugin: 'kotlin-android'
@@ -15,7 +15,6 @@ static def generateVersionCode() {
 }
 
 android {
-	compileSdkVersion 33
 	namespace 'com.sapuseven.untis'
 
 	androidResources {
@@ -25,7 +24,8 @@ android {
 	defaultConfig {
 		applicationId "com.sapuseven.untis"
 		minSdkVersion 21
-		targetSdkVersion 33
+		targetSdkVersion 35
+		compileSdk 35
 		versionCode generateVersionCode()
 		versionName "4.1.0-beta01"
 		vectorDrawables.useSupportLibrary = true
@@ -93,7 +93,7 @@ android {
 	}
 
 	compileOptions {
-		coreLibraryDesugaringEnabled true
+		coreLibraryDesugaringEnabled = true
 
 		sourceCompatibility JavaVersion.VERSION_17
 		targetCompatibility JavaVersion.VERSION_17
@@ -104,7 +104,7 @@ android {
 	}
 
 	composeOptions {
-		kotlinCompilerExtensionVersion '1.4.7'
+		kotlinCompilerExtensionVersion '1.5.14'
 	}
 
 	lint {
