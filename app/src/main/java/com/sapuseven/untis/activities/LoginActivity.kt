@@ -247,6 +247,7 @@ class LoginActivity : BaseComposeActivity() {
 				query.data.params = listOf(SchoolSearchParams(searchText))
 				println("HI");
 				api.request<SchoolSearchResponse>(query).fold({ data ->
+					println("JO")
 					untisResponse = data
 				}, { error ->
 					println("An error of type ${error.exception} happened: ${error.message}") // TODO: Implement proper error handling
