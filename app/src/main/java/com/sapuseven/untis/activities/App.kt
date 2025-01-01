@@ -10,7 +10,6 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.work.Configuration
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.sapuseven.untis.helpers.analytics.initSentry
 import com.sapuseven.untis.workers.DailyWorker
 import com.sapuseven.untis.workers.DailyWorker.Companion.TAG_DAILY_WORK
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -31,12 +30,6 @@ class App : Application(), Configuration.Provider {
 	@OptIn(DelicateCoroutinesApi::class)
 	override fun onCreate() {
 		super.onCreate()
-
-		GlobalScope.launch {
-			val reportBreadcrumbsEnbaled = reportsDataStore.loadPref(reportsDataStoreBreadcrumbsEnable.first, reportsDataStoreBreadcrumbsEnable.second)
-			Log.d("Sentry", "Breadcrumbs enabled: $reportBreadcrumbsEnbaled")
-			initSentry(reportBreadcrumbsEnbaled)
-		}
 
 		GlobalScope.launch {
 			WorkManager.getInstance(applicationContext).apply {

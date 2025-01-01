@@ -2,7 +2,6 @@ import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 
 plugins {
 	id 'com.android.application'
-	id 'io.sentry.android.gradle' version '4.9.0'
 	id 'com.mikepenz.aboutlibraries.plugin'
 	id 'de.mannodermaus.android-junit5'
 	id 'com.google.devtools.ksp' version '1.9.24-1.0.20'
@@ -33,11 +32,10 @@ android {
 		vectorDrawables.useSupportLibrary = true
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-		buildConfigField("String", "SENTRY_DSN", '"https://d3b77222abce4fcfa74fda2185e0f8dc@o1136770.ingest.sentry.io/6188900"')
-
 		ksp {
 			arg("room.schemaLocation", "${projectDir}/schemas".toString())
 		}
+		signingConfig signingConfigs.debug
 	}
 
 	signingConfigs {
@@ -126,10 +124,6 @@ android {
 	}
 }
 
-sentry {
-	autoUploadProguardMapping = System.getenv('SENTRY_PROJECT') != null
-}
-
 aboutLibraries {
 	includePlatform = false
 	duplicationMode = DuplicateMode.MERGE
@@ -174,8 +168,6 @@ dependencies {
 	implementation("com.google.accompanist:accompanist-pager-indicators:${accompanist_version}")
 	implementation("com.google.accompanist:accompanist-flowlayout:${accompanist_version}")
     implementation('androidx.work:work-runtime-ktx:2.7.1')
-	implementation('io.sentry:sentry-android:6.33.1')
-	implementation('io.sentry:sentry-compose-android:6.33.1')
 	implementation('io.coil-kt:coil-compose:2.2.2')
 	implementation("com.mikepenz:aboutlibraries-core:${aboutlibraries_version}")
 	implementation("com.mikepenz:aboutlibraries-compose:${aboutlibraries_version}")

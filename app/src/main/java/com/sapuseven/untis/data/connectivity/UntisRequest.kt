@@ -13,9 +13,6 @@ import com.sapuseven.untis.data.connectivity.UntisApiConstants.DEFAULT_WEBUNTIS_
 import com.sapuseven.untis.data.databases.entities.User
 import com.sapuseven.untis.helpers.SerializationUtils.getJSON
 import com.sapuseven.untis.models.untis.params.BaseParams
-import io.sentry.Breadcrumb
-import io.sentry.Sentry
-import io.sentry.SentryLevel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import java.io.UnsupportedEncodingException
@@ -24,22 +21,11 @@ import java.net.URISyntaxException
 
 class UntisRequest {
 	suspend inline fun <reified T> request(query: UntisRequestQuery): Result<T, FuelError> {
-		val breadcrumb = Breadcrumb().apply {
-			type = "http"
-			category = "fuel"
-			level = SentryLevel.INFO
-			setData("url", query.url)
-			setData("method", "POST")
-			setData("untis_method", query.data.method)
-		}
 
 		return Fuel.post(query.getUri().toString())
 			.header(mapOf("Content-Type" to "application/json; charset=UTF-8"))
 			.body(getJSON().encodeToString(query.data))
 			.response { _, response, _ ->
-				breadcrumb.setData("status_code", response.statusCode)
-				breadcrumb.setData("reason", response.responseMessage)
-				Sentry.addBreadcrumb(breadcrumb)
 			}
 			.awaitObjectResult(kotlinxDeserializerOf(getJSON()))
 	}

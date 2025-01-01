@@ -66,7 +66,6 @@ import com.sapuseven.untis.ui.animations.fullscreenDialogAnimationEnter
 import com.sapuseven.untis.ui.animations.fullscreenDialogAnimationExit
 import com.sapuseven.untis.ui.common.*
 import com.sapuseven.untis.ui.dialogs.ElementPickerDialogFullscreen
-import com.sapuseven.untis.ui.dialogs.FeedbackDialog
 import com.sapuseven.untis.ui.dialogs.ProfileManagementDialog
 import com.sapuseven.untis.ui.dialogs.TimetableItemDetailsDialog
 import com.sapuseven.untis.ui.functional.bottomInsets
@@ -74,9 +73,6 @@ import com.sapuseven.untis.ui.functional.insetsPaddingValues
 import com.sapuseven.untis.ui.models.NavItemShortcut
 import com.sapuseven.untis.ui.preferences.convertRangeToPair
 import com.sapuseven.untis.ui.weekview.*
-import io.sentry.Breadcrumb
-import io.sentry.Sentry
-import io.sentry.SentryLevel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.serialization.*
@@ -218,13 +214,6 @@ private fun Drawer(
 			.distinctUntilChanged()
 			.drop(1)
 			.collect {
-				Log.i("Sentry", "Drawer isOpen: ${state.drawerState.isOpen}")
-				Breadcrumb().apply {
-					category = "ui.drawer"
-					level = SentryLevel.INFO
-					setData("isOpen", state.drawerState.isOpen)
-					Sentry.addBreadcrumb(this)
-				}
 			}
 	}
 
@@ -526,11 +515,6 @@ fun MainApp(state: NewMainAppState) {
 					Icon(painter = painterResource(R.drawable.all_feedback), contentDescription = "Give feedback")
 				}
 
-				if (state.feedbackDialog)
-					FeedbackDialog(
-						onDismiss = { state.feedbackDialog = false }
-					)
-
 				if (state.isAnonymous) {
 					Column(
 						verticalArrangement = Arrangement.Center,
@@ -563,8 +547,6 @@ fun MainApp(state: NewMainAppState) {
 							.padding(8.dp)
 					)
 			}
-
-			ReportsInfoBottomSheet()
 		}
 	}
 
@@ -638,14 +620,6 @@ class MainDrawerState constructor(
 		item: NavItemShortcut,
 		shortcutLauncher: ManagedActivityResultLauncher<Intent, ActivityResult>
 	) {
-		Log.i("Sentry", "Drawer onClick: ${item}")
-		Breadcrumb().apply {
-			category = "ui.drawer.click"
-			level = SentryLevel.INFO
-			setData("id", item.id)
-			setData("label", item.label)
-			Sentry.addBreadcrumb(this)
-		}
 
 		closeDrawer()
 		if (item.target == null) {
