@@ -1101,7 +1101,7 @@ private suspend fun submitAbsencesChecked(
 		}
 
 	// TODO: Create corresponding data model
-	return UntisRequest().request<BaseResponse>(query).fold({ untisResponse ->
+	return UntisRequest().request<AbsencesCheckedResponse>(query).fold({ untisResponse ->
 		untisResponse.error?.let {
 			Result.failure(UntisApiException(it))
 		} ?: Result.success(true)
