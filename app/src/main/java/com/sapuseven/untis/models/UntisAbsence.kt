@@ -15,5 +15,8 @@ data class UntisAbsence(
 		var excuse: UnknownObject?,
 		var absenceReasonId: Int,
 		var absenceReason: String,
-		var text: String
+		var text: String,
+		var manualNotificationStatus: String? = null,
+		var autoNotificationStatus: String? = null,
+		var studentOfAge: Boolean
 )

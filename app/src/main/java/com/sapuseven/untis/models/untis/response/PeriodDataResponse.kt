@@ -49,5 +49,6 @@ data class UntisPeriodData(
 		val seatingPlan: UnknownObject? = null,
 		val classRoles: List<UnknownObject>? = null,
 		val channel: UnknownObject? = null,
-		val can: List<String>
+		val can: List<String>,
+		val manualNotificationStatus: String? = null
 )
