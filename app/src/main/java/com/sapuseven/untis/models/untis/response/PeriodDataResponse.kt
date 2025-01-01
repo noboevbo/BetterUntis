@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.sapuseven.untis.models.UnknownObject
 import com.sapuseven.untis.models.UntisAbsence
 import com.sapuseven.untis.models.UntisHomework
+import com.sapuseven.untis.models.untis.UntisDate
 import com.sapuseven.untis.models.untis.UntisTopic
 import kotlinx.serialization.Serializable
 
@@ -23,7 +24,12 @@ data class PeriodDataResult(
 data class UntisStudent(
 		val id: Int,
 		val firstName: String,
-		val lastName: String
+		val lastName: String,
+		val klasseId: Int? = 0,
+		val birthDate: UntisDate? = null,
+		val studentOfAge: Boolean? = false,
+		val imageUrl: String? = null,
+		val medicalCertSince: String? = null,
 ) {
 	fun fullName(): String = "$firstName $lastName"
 }

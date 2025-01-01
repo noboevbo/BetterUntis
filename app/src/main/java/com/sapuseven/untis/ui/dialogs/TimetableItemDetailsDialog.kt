@@ -1128,7 +1128,7 @@ private suspend fun submitLessonTopic(
 		}
 
 	// TODO: Create corresponding data model
-	return UntisRequest().request<BaseResponse>(query).fold({ untisResponse ->
+	return UntisRequest().request<LessonTopicResponse>(query).fold({ untisResponse ->
 
 		untisResponse.error?.let {
 			Result.failure(UntisApiException(it))
