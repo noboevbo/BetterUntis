@@ -23,5 +23,6 @@ data class AbsenceReason(
 	@Transient val userId: Long = -1,
 	val name: String,
 	val longName: String,
-	val active: Boolean
+	val active: Boolean,
+	val automaticNotificationEnabled: Boolean? = false
 )

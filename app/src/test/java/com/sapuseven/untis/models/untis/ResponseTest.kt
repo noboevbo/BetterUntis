@@ -40,6 +40,7 @@ class ResponseTest {
 								loginName = "LOGIN_NAME",
 								schoolId = 123,
 								serverUrl = "http://",
+								tenantId = 0,
 								mobileServiceUrl = "http://"
 						), UntisSchoolInfo(
 								server = "server 2",
@@ -50,6 +51,7 @@ class ResponseTest {
 								loginName = "LOGIN_NAME",
 								schoolId = 123,
 								serverUrl = "http://",
+								tenantId = 0,
 								mobileServiceUrl = "http://"
 						))
 				)
@@ -108,6 +110,7 @@ class ResponseTest {
 				displayName = "school display name 1",
 				loginName = "LOGIN_NAME",
 				schoolId = 123,
+				tenantId = 0,
 				serverUrl = "http://",
 				mobileServiceUrl = "http://"
 		)))
@@ -120,6 +123,7 @@ class ResponseTest {
 				loginName = "LOGIN_NAME",
 				schoolId = 123,
 				serverUrl = "http://",
+				tenantId = 0,
 				mobileServiceUrl = "http://"
 		)))
 		assertThat(schoolSearchResponse2.error, nullValue())

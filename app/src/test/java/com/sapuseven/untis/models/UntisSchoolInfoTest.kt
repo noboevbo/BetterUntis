@@ -19,6 +19,7 @@ class UntisSchoolInfoTest {
 				loginName = "LOGIN_NAME",
 				schoolId = 123,
 				serverUrl = "http://",
+				tenantId = 0,
 				mobileServiceUrl = "http://"
 		)), `is`("""{"server":"server","useMobileServiceUrlAndroid":true,"useMobileServiceUrlIos":false,"address":"123","displayName":"school display name","loginName":"LOGIN_NAME","schoolId":123,"serverUrl":"http://","mobileServiceUrl":"http://"}"""))
 	}

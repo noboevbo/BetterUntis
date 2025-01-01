@@ -19,7 +19,8 @@ class InfoCenterStateTest {
 			null,
 			0,
 			"Absence Unexcused Yesterday",
-			""
+			"",
+			studentOfAge = false
 		),
 		UntisAbsence(
 			2, 1, 1,
@@ -30,7 +31,8 @@ class InfoCenterStateTest {
 			null,
 			0,
 			"Absence Excused Yesterday",
-			""
+			"",
+			studentOfAge = false
 		),
 		UntisAbsence(
 			3, 1, 1,
@@ -41,7 +43,8 @@ class InfoCenterStateTest {
 			null,
 			0,
 			"Absence Excused Last Week",
-			""
+			"",
+			studentOfAge = false
 		),
 		UntisAbsence(
 			4, 1, 1,
@@ -52,7 +55,8 @@ class InfoCenterStateTest {
 			null,
 			0,
 			"Absence Unexcused Last Month",
-			""
+			"",
+			studentOfAge = false
 		),
 	)
 
