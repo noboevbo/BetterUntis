@@ -5,8 +5,8 @@ import kotlinx.serialization.json.Json
 
 object SerializationUtils {
 	fun getJSON() = Json {
-		ignoreUnknownKeys = true
-		isLenient = true
+		ignoreUnknownKeys = false
+		isLenient = false
 		encodeDefaults = true
 	}
 }

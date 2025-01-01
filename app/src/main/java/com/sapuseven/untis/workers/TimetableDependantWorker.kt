@@ -3,6 +3,7 @@ package com.sapuseven.untis.workers
 import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Context.ALARM_SERVICE
 import android.os.Build
 import androidx.activity.ComponentActivity
 import androidx.room.Room
@@ -101,7 +102,7 @@ abstract class TimetableDependantWorker(
 
 	internal fun canScheduleExactAlarms(): Boolean {
 		val alarmManager =
-			applicationContext.getSystemService(ComponentActivity.ALARM_SERVICE) as AlarmManager
+			applicationContext.getSystemService(ALARM_SERVICE) as AlarmManager
 		return (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms())
 	}
 

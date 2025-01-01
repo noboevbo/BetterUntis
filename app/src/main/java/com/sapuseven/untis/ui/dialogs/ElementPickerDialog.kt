@@ -13,7 +13,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
-import androidx.compose.material3.TextFieldDefaults.TextFieldDecorationBox
+import androidx.compose.material3.TextFieldDefaults.DecorationBox
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -82,7 +82,7 @@ fun ElementPickerDialogFullscreen(
 							onValueChange = { search = it },
 							singleLine = true,
 							decorationBox = { innerTextField ->
-								TextFieldDecorationBox(
+								DecorationBox(
 									value = search,
 									innerTextField = innerTextField,
 									enabled = true,
@@ -91,8 +91,9 @@ fun ElementPickerDialogFullscreen(
 									interactionSource = remember { MutableInteractionSource() },
 									placeholder = { Text("Search") },
 									contentPadding = PaddingValues(horizontal = 0.dp),
-									colors = TextFieldDefaults.textFieldColors(
-										containerColor = Color.Transparent,
+									colors = TextFieldDefaults.colors(
+										focusedContainerColor = Color.Transparent,
+										unfocusedContainerColor = Color.Transparent,
 										focusedIndicatorColor = Color.Transparent,
 										unfocusedIndicatorColor = Color.Transparent,
 										disabledIndicatorColor = Color.Transparent

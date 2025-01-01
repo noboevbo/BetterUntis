@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation("com.google.errorprone:error_prone_annotations:2.15.0")
+    implementation("com.google.errorprone:error_prone_annotations:2.18.0")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }

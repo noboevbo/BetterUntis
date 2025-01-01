@@ -14,7 +14,7 @@ internal fun androidx.compose.ui.text.TextStyle.toGlanceTextStyle(
 ): TextStyle =
 	run {
 		TextStyle(
-			color = color,
+			color = color ?: ColorProvider(this.color),
 			fontSize = fontSize,
 			fontWeight = fontWeight,
 			fontStyle = fontStyle,

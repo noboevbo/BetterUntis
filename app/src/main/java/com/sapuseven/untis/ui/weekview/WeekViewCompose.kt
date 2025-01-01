@@ -586,7 +586,7 @@ fun WeekViewCompose(
 	var contentHeight by remember { mutableStateOf(0) }
 
 	val startPage = Int.MAX_VALUE / 2
-	val pagerState = rememberPagerState(initialPage = startPage)
+	val pagerState = rememberPagerState(initialPage = startPage, pageCount = { Int.MAX_VALUE })
 	val numDays = 5
 
 	val currentOnPageChange by rememberUpdatedState(onPageChange)
@@ -647,14 +647,9 @@ fun WeekViewCompose(
 
 		HorizontalPager(
 			state = pagerState,
-			pageCount = Int.MAX_VALUE,
 			pageSpacing = with(LocalDensity.current) { dividerWidth.toDp() },
 			flingBehavior = PagerDefaults.flingBehavior(
 				state = pagerState,
-				lowVelocityAnimationSpec = tween(
-					easing = CubicBezierEasing(0.17f, 0.84f, 0.44f, 1f),
-					durationMillis = 500
-				)
 			)
 		) { index ->
 			val pageOffset = index - startPage

@@ -22,8 +22,8 @@ val Context.reportsDataStore: DataStore<Preferences> by preferencesDataStore(nam
 val reportsDataStoreBreadcrumbsEnable = Pair(booleanPreferencesKey("reportBreadcrumbsEnable"), true)
 
 class App : Application(), Configuration.Provider {
-	override fun getWorkManagerConfiguration() =
-		Configuration.Builder()
+	override val workManagerConfiguration: Configuration
+		get() = Configuration.Builder()
 			.setMinimumLoggingLevel(Log.VERBOSE)
 			.build()
 

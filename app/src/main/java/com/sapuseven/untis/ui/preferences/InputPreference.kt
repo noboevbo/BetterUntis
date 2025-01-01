@@ -55,8 +55,9 @@ fun InputPreference(
 					onValueChange = { input = it },
 					singleLine = true,
 					keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-					colors = TextFieldDefaults.textFieldColors(
-						containerColor = Color.Transparent
+					colors = TextFieldDefaults.colors(
+						focusedContainerColor = Color.Transparent,
+						unfocusedContainerColor = Color.Transparent
 					),
 					modifier = Modifier.fillMaxWidth()
 				)
@@ -124,8 +125,9 @@ fun NumericInputPreference(
 						onValueChange = { input = it },
 						singleLine = true,
 						keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-						colors = TextFieldDefaults.textFieldColors(
-							containerColor = Color.Transparent
+						colors = TextFieldDefaults.colors(
+							focusedContainerColor = Color.Transparent,
+							unfocusedContainerColor = Color.Transparent
 						),
 						modifier = Modifier.weight(1f)
 					)
@@ -205,8 +207,9 @@ fun RangeInputPreference(
 						onValueChange = { first = it },
 						singleLine = true,
 						keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-						colors = TextFieldDefaults.textFieldColors(
-							containerColor = Color.Transparent
+						colors = TextFieldDefaults.colors(
+							focusedContainerColor = Color.Transparent,
+							unfocusedContainerColor = Color.Transparent
 						),
 						label = { Text(text = stringResource(R.string.preference_range_from)) },
 						modifier = Modifier
@@ -219,8 +222,9 @@ fun RangeInputPreference(
 						onValueChange = { second = it },
 						singleLine = true,
 						keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-						colors = TextFieldDefaults.textFieldColors(
-							containerColor = Color.Transparent
+						colors = TextFieldDefaults.colors(
+							focusedContainerColor = Color.Transparent,
+							unfocusedContainerColor = Color.Transparent
 						),
 						label = { Text(text = stringResource(R.string.preference_range_to)) },
 						modifier = Modifier

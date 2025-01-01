@@ -34,7 +34,7 @@ android {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
     implementation("joda-time:joda-time:2.10.14")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha15")
-    implementation("androidx.compose.material:material:1.1.1")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+    implementation("androidx.compose.material3:material3:1.3.1")
+    implementation("androidx.compose.material:material:1.7.6")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
