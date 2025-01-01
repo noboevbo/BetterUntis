@@ -243,7 +243,8 @@ class LoginDataInputActivity : BaseComposeActivity() {
 											schoolId = schoolId.value?.toIntOrNull()
 												?: 0,
 											serverUrl = apiUrl.value ?: "",
-											mobileServiceUrl = apiUrl.value
+											mobileServiceUrl = apiUrl.value,
+											tenantId = 0
 										)
 
 										else -> loadSchoolInfo(

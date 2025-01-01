@@ -1,9 +1,9 @@
 plugins {
-    id('java-library')
+    id("java-library")
 }
 
 dependencies {
-    implementation('com.google.errorprone:error_prone_annotations:2.15.0')
+    implementation("com.google.errorprone:error_prone_annotations:2.15.0")
 }
 
 java {

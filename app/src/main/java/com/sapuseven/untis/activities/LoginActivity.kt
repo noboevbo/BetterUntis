@@ -245,7 +245,7 @@ class LoginActivity : BaseComposeActivity() {
 
 				query.data.method = UntisApiConstants.METHOD_SEARCH_SCHOOLS
 				query.data.params = listOf(SchoolSearchParams(searchText))
-
+				println("HI");
 				api.request<SchoolSearchResponse>(query).fold({ data ->
 					untisResponse = data
 				}, { error ->
