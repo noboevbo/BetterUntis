@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
-		android:title="@string/nav_all_timetables"
-		android:id="@+id/nav_personal_bookmarks_title">
+		android:id="@+id/nav_personal_bookmarks_title"
+		android:title="@string/nav_all_timetables">
 		<menu android:id="@+id/nav_personal_bookmarks">
 			<group android:checkableBehavior="single">
 				<item

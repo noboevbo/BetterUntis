@@ -17,24 +17,24 @@
 			android:layout_marginTop="24dp"
 			android:layout_marginBottom="8dp"
 			android:contentDescription="@null"
-			app:tint="?attr/colorAccent"
-			app:srcCompat="@drawable/all_subject" />
+			app:srcCompat="@drawable/all_subject"
+			app:tint="?attr/colorAccent" />
 
 		<TextView
 			android:id="@+id/title"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:gravity="center"
 			android:paddingHorizontal="24dp"
-			android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-			android:gravity="center" />
+			android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
 		<TextView
 			android:id="@+id/time"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:gravity="center"
 			android:paddingHorizontal="24dp"
-			android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-			android:gravity="center" />
+			android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
 		<View
 			android:layout_width="match_parent"
@@ -89,8 +89,8 @@
 				android:layout_marginEnd="24dp"
 				android:layout_marginBottom="12dp"
 				android:contentDescription="@string/all_classes"
-				app:tint="?android:attr/textColorPrimary"
-				app:srcCompat="@drawable/all_classes" />
+				app:srcCompat="@drawable/all_classes"
+				app:tint="?android:attr/textColorPrimary" />
 
 			<HorizontalScrollView
 				android:layout_width="match_parent"
@@ -120,8 +120,8 @@
 				android:layout_marginEnd="24dp"
 				android:layout_marginBottom="12dp"
 				android:contentDescription="@string/all_rooms"
-				app:tint="?android:attr/textColorPrimary"
-				app:srcCompat="@drawable/all_rooms" />
+				app:srcCompat="@drawable/all_rooms"
+				app:tint="?android:attr/textColorPrimary" />
 
 			<HorizontalScrollView
 				android:layout_width="match_parent"

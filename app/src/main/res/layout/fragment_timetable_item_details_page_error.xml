@@ -12,6 +12,6 @@
 		android:drawableStart="@drawable/notification_error"
 		android:drawablePadding="12dp"
 		android:gravity="center_vertical"
-		android:textColor="?android:attr/textColorPrimary"
-		android:text="@string/main_dialog_itemdetails_error_not_found" />
+		android:text="@string/main_dialog_itemdetails_error_not_found"
+		android:textColor="?android:attr/textColorPrimary" />
 </FrameLayout>

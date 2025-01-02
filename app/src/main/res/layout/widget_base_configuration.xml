@@ -6,9 +6,9 @@
 	android:orientation="vertical">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
+		style="@style/DefaultItemStyle"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		style="@style/DefaultItemStyle">
+		android:layout_height="wrap_content">
 
 		<TextView
 			android:layout_width="0dp"
@@ -16,9 +16,9 @@
 			android:layout_marginStart="@dimen/margin_listitem_text"
 			android:gravity="center_vertical"
 			android:lines="1"
+			android:text="@string/widget_select_profile"
 			android:textColor="?android:attr/textColorPrimary"
 			android:textSize="@dimen/textsize_listitem_line1"
-			android:text="@string/widget_select_profile"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@+id/imageview_profiles_portrait"
 			app:layout_constraintTop_toTopOf="parent" />

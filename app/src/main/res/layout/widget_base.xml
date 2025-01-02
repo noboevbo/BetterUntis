@@ -3,14 +3,14 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="?android:attr/colorBackground"
-	android:orientation="vertical"
 	android:gravity="center"
+	android:orientation="vertical"
 	android:theme="@style/Theme.Material3.DynamicColors.DayNight">
 
 	<ImageView
-		android:src="@drawable/app_launcher_foreground"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:src="@drawable/app_launcher_foreground"
 		app:tint="?android:attr/textColorPrimary" />
 
 	<TextView
@@ -20,6 +20,6 @@
 		android:layout_gravity="center"
 		android:gravity="center"
 		android:text="@string/loading"
-		android:textColor="?android:attr/textColorPrimary"
-		android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+		android:textAppearance="@style/TextAppearance.AppCompat.Large"
+		android:textColor="?android:attr/textColorPrimary" />
 </LinearLayout>

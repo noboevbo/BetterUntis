@@ -3,9 +3,9 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:background="?android:attr/selectableItemBackground"
 	android:clickable="true"
 	android:focusable="true"
-	android:background="?android:attr/selectableItemBackground"
 	android:minHeight="60dp">
 
 	<androidx.appcompat.widget.AppCompatImageView
@@ -30,10 +30,10 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
-		android:layout_marginEnd="72dp"
-		android:layout_marginLeft="72dp"
-		android:layout_marginRight="72dp"
 		android:layout_marginStart="72dp"
+		android:layout_marginLeft="72dp"
+		android:layout_marginEnd="72dp"
+		android:layout_marginRight="72dp"
 		android:orientation="vertical">
 
 		<TextView

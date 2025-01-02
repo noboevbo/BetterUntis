@@ -16,7 +16,8 @@ fun insetsPaddingValues() = WindowInsets.navigationBars.add(WindowInsets.ime).as
 fun Modifier.bottomInsets() = this.then(
 	Modifier
 		.navigationBarsPadding()
-		.imePadding())
+		.imePadding()
+)
 
 val WindowInsets.Companion.None: WindowInsets
 	get() = WindowInsets(0, 0, 0, 0)
