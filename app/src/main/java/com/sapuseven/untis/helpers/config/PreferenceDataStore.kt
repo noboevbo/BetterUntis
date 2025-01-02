@@ -169,7 +169,6 @@ fun Context.stringSetDataStore(
 	)
 }
 
-@Deprecated("This needs to be removed eventually")
 suspend fun BaseComposeActivity.deleteProfile(id: Long) {
 	preferenceDataStore.edit { prefs ->
 		prefs.asMap().keys.filter { it.name.startsWith("${id}_") }.forEach {

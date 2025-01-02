@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId = "com.sapuseven.untis"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 35
         compileSdk = 35
         versionCode = generateVersionCode()
@@ -150,7 +150,6 @@ dependencies {
     androidTestImplementation(libs.core)
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.test.manifest)
-
 
     implementation(project(":weekview"))
     implementation(project(":material-color-utils"))

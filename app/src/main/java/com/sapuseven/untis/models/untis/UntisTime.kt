@@ -16,8 +16,6 @@ import org.joda.time.LocalTime
 class UntisTime(
 	val time: String
 ) {
-	@OptIn(ExperimentalSerializationApi::class)
-	@Serializer(forClass = UntisTime::class)
 	companion object : KSerializer<UntisTime> {
 		override val descriptor: SerialDescriptor =
 			PrimitiveSerialDescriptor("UntisTime", PrimitiveKind.STRING)

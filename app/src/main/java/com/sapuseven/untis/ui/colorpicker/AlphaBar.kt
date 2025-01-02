@@ -1,6 +1,7 @@
 package com.sapuseven.untis.ui.colorpicker
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.drag
 import androidx.compose.foundation.gestures.forEachGesture
@@ -45,24 +46,20 @@ internal fun AlphaBar(
 		modifier = modifier
 			.fillMaxSize()
 			.pointerInput(Unit) {
-				forEachGesture {
-					awaitPointerEventScope {
-						val down = awaitFirstDown()
-						onAlphaChanged(
-							getAlphaFromPosition(
-								down.position.x,
-								this.size.width.toFloat()
-							).coerceIn(0f, 1f)
-						)
-						drag(down.id) { change ->
-							if (change.positionChange() != Offset.Zero) change.consume()
-							onAlphaChanged(
-								getAlphaFromPosition(
-									change.position.x,
-									this.size.width.toFloat()
-								).coerceIn(0f, 1f)
-							)
-						}
+				awaitEachGesture {
+					val down = awaitFirstDown()
+					val alpha = getAlphaFromPosition(
+						down.position.x,
+						this.size.width.toFloat()
+					).coerceIn(0f, 1f)
+					onAlphaChanged(alpha)
+					drag(down.id) { change ->
+						if (change.positionChange() != Offset.Zero) change.consume()
+						val alpha = getAlphaFromPosition(
+							change.position.x,
+							this.size.width.toFloat()
+						).coerceIn(0f, 1f)
+						onAlphaChanged(alpha)
 					}
 				}
 			}

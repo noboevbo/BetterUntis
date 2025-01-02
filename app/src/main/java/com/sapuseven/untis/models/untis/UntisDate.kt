@@ -16,7 +16,6 @@ import org.joda.time.format.ISODateTimeFormat
 class UntisDate(
 	val date: String
 ) {
-	@Serializer(forClass = UntisDate::class)
 	companion object : KSerializer<UntisDate> {
 		override val descriptor: SerialDescriptor =
 			PrimitiveSerialDescriptor("UntisDate", PrimitiveKind.STRING)

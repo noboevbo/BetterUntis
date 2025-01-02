@@ -1,14 +1,14 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("org.jetbrains.kotlin.plugin.compose")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.sapuseven.untis.views.weekview"
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 24
         testOptions.targetSdk = 35
         compileSdk = 35
     }
