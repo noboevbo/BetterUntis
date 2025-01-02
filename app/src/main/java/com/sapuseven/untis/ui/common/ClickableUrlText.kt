@@ -1,6 +1,7 @@
 package com.sapuseven.untis.ui.common
 
-import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
@@ -22,20 +23,20 @@ fun ClickableUrlText(
 	onClick: (String) -> Unit
 ) {
 	val annotatedText = annotateUrls(text)
-	ClickableText(
-		annotatedText,
-		modifier = modifier,
+
+	BasicText(
+		text = annotatedText,
+		modifier = modifier.clickable(
+			onClick = {
+				annotatedText.getStringAnnotations(tag = "URL", start = 0, end = annotatedText.length)
+					.firstOrNull()
+					?.let { onClick(it.item) }
+			}
+		),
 		style = style,
 		softWrap = softWrap,
 		overflow = overflow,
 		maxLines = maxLines,
-		onTextLayout = onTextLayout,
-		onClick = { clickPos ->
-			annotatedText.getStringAnnotations(tag = "url", start = clickPos, end = clickPos)
-				.firstOrNull()
-				?.let {
-					onClick(it.item)
-				}
-		}
+		onTextLayout = onTextLayout
 	)
 }

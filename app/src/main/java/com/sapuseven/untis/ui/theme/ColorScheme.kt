@@ -60,4 +60,11 @@ fun Scheme.toColorScheme(): ColorScheme =
 		outline = Color(outline),
 		outlineVariant = Color(outlineVariant),
 		scrim = Color(scrim),
+		surfaceBright = Color.Unspecified,
+		surfaceDim = Color.Unspecified,
+		surfaceContainer = Color.Unspecified,
+		surfaceContainerHigh = Color.Unspecified,
+		surfaceContainerHighest = Color.Unspecified,
+		surfaceContainerLow = Color.Unspecified,
+		surfaceContainerLowest = Color.Unspecified,
 	)

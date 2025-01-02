@@ -4,6 +4,7 @@ import com.sapuseven.untis.helpers.SerializationUtils.getJSON
 import com.sapuseven.untis.models.untis.params.AppSharedSecretParams
 import com.sapuseven.untis.models.untis.params.SchoolSearchParams
 import com.sapuseven.untis.models.untis.params.UserDataParams
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.encodeToString
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -22,6 +23,7 @@ class ParamsTest {
 		)
 	}
 
+	@OptIn(ExperimentalSerializationApi::class)
 	@Test
 	fun schoolSearchParams_serialization() {
 		assertThat(
@@ -66,6 +68,7 @@ class ParamsTest {
 		assertThat(appSharedSecretParams.password, `is`("pass"))
 	}
 
+	@OptIn(ExperimentalSerializationApi::class)
 	@Test
 	fun schoolSearchParams_deserialization() {
 		val schoolSearchParams =

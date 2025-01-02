@@ -1,6 +1,7 @@
 package com.sapuseven.untis.ui.colorpicker
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.drag
 import androidx.compose.foundation.gestures.forEachGesture
@@ -36,14 +37,13 @@ internal fun HueBar(
 		modifier = modifier
 			.fillMaxSize()
 			.pointerInput(Unit) {
-				forEachGesture {
-					awaitPointerEventScope {
-						val down = awaitFirstDown()
-						onHueChanged(getHueFromPoint(down.position.y, size.height.toFloat()))
-						drag(down.id) { change ->
-							if (change.positionChange() != Offset.Zero) change.consume()
-							onHueChanged(getHueFromPoint(change.position.y, size.height.toFloat()))
-						}
+				awaitEachGesture {
+					val down = awaitFirstDown()
+					val hue = getHueFromPoint(down.position.y, size.height.toFloat())
+					onHueChanged(hue)
+					drag(down.id) { change ->
+						if (change.positionChange() != Offset.Zero) change.consume()
+						onHueChanged(getHueFromPoint(change.position.y, size.height.toFloat()))
 					}
 				}
 			}

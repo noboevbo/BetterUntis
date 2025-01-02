@@ -7,6 +7,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.animation.with
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.KeyboardArrowLeft
 import androidx.compose.material.icons.outlined.KeyboardArrowRight
 import androidx.compose.material3.Icon
@@ -52,9 +55,9 @@ fun DatePickerHeader(
 			targetState = date,
 			transitionSpec = {
 				if (targetState > initialState) {
-					slideInVertically { height -> height } + fadeIn() with slideOutVertically { height -> -height } + fadeOut()
+					slideInVertically { height -> height } + fadeIn() togetherWith slideOutVertically { height -> -height } + fadeOut()
 				} else {
-					slideInVertically { height -> -height } + fadeIn() with slideOutVertically { height -> height } + fadeOut()
+					slideInVertically { height -> -height } + fadeIn() togetherWith slideOutVertically { height -> height } + fadeOut()
 				}.using(SizeTransform(clip = false))
 			}
 		) {
@@ -76,7 +79,7 @@ fun DatePickerHeader(
 				modifier = modifier.clip(CircleShape)
 			) {
 				Icon(
-					imageVector = Icons.Outlined.KeyboardArrowLeft,
+					imageVector = Icons.AutoMirrored.Outlined.KeyboardArrowLeft,
 					contentDescription = stringResource(R.string.all_datepicker_month_previous)
 				)
 			}
@@ -89,7 +92,7 @@ fun DatePickerHeader(
 				modifier = modifier.clip(CircleShape)
 			) {
 				Icon(
-					imageVector = Icons.Outlined.KeyboardArrowRight,
+					imageVector = Icons.AutoMirrored.Outlined.KeyboardArrowRight,
 					contentDescription = stringResource(R.string.all_datepicker_month_next)
 				)
 			}

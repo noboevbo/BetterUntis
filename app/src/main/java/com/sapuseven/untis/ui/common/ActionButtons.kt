@@ -5,9 +5,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Edit
-import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -86,5 +86,5 @@ fun ProfileSelectorAction(
 
 @Composable
 internal fun DropdownMenuDivider() {
-	Divider(modifier = Modifier.padding(vertical = 8.dp))
+	HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 }
