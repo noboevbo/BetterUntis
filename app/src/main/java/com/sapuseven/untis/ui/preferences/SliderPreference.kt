@@ -17,7 +17,7 @@ import com.sapuseven.untis.preferences.UntisPreferenceDataStore
 import kotlinx.coroutines.launch
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.*
+import java.util.Locale
 
 @Composable
 fun SliderPreference(

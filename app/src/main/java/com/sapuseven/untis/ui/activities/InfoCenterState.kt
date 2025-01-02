@@ -1,7 +1,11 @@
 package com.sapuseven.untis.ui.activities
 
 import android.app.Activity
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import com.sapuseven.untis.activities.BaseComposeActivity
 import com.sapuseven.untis.data.connectivity.UntisApiConstants
@@ -9,16 +13,27 @@ import com.sapuseven.untis.data.connectivity.UntisAuthentication
 import com.sapuseven.untis.data.connectivity.UntisRequest
 import com.sapuseven.untis.data.databases.UserDatabase
 import com.sapuseven.untis.data.databases.entities.User
-import com.sapuseven.untis.helpers.SerializationUtils
 import com.sapuseven.untis.helpers.timetable.TimetableDatabaseInterface
-import com.sapuseven.untis.models.*
+import com.sapuseven.untis.models.UntisAbsence
+import com.sapuseven.untis.models.UntisExam
+import com.sapuseven.untis.models.UntisHomework
+import com.sapuseven.untis.models.UntisMessage
+import com.sapuseven.untis.models.UntisOfficeHour
 import com.sapuseven.untis.models.untis.UntisDate
 import com.sapuseven.untis.models.untis.masterdata.SchoolYear
-import com.sapuseven.untis.models.untis.params.*
-import com.sapuseven.untis.models.untis.response.*
+import com.sapuseven.untis.models.untis.params.AbsenceParams
+import com.sapuseven.untis.models.untis.params.ExamParams
+import com.sapuseven.untis.models.untis.params.HomeworkParams
+import com.sapuseven.untis.models.untis.params.MessageParams
+import com.sapuseven.untis.models.untis.params.OfficeHoursParams
+import com.sapuseven.untis.models.untis.response.AbsenceResponse
+import com.sapuseven.untis.models.untis.response.ExamResponse
+import com.sapuseven.untis.models.untis.response.HomeworkResponse
+import com.sapuseven.untis.models.untis.response.MessageResponse
+import com.sapuseven.untis.models.untis.response.OfficeHoursResponse
+import com.sapuseven.untis.models.untis.response.UntisHomeworkLesson
 import com.sapuseven.untis.preferences.DataStorePreferences
 import com.sapuseven.untis.ui.activities.InfoCenterState.Companion.ID_MESSAGES
-import kotlinx.serialization.decodeFromString
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 

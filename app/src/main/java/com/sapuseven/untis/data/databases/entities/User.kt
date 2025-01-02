@@ -3,14 +3,35 @@ package com.sapuseven.untis.data.databases.entities
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.Insert
+import androidx.room.PrimaryKey
+import androidx.room.Query
+import androidx.room.Relation
+import androidx.room.Transaction
+import androidx.room.Update
 import com.sapuseven.untis.R
 import com.sapuseven.untis.models.TimetableBookmark
 import com.sapuseven.untis.models.untis.UntisMasterData
 import com.sapuseven.untis.models.untis.UntisSettings
 import com.sapuseven.untis.models.untis.UntisUserData
-import com.sapuseven.untis.models.untis.masterdata.*
+import com.sapuseven.untis.models.untis.masterdata.AbsenceReason
+import com.sapuseven.untis.models.untis.masterdata.Department
+import com.sapuseven.untis.models.untis.masterdata.Duty
+import com.sapuseven.untis.models.untis.masterdata.EventReason
+import com.sapuseven.untis.models.untis.masterdata.EventReasonGroup
+import com.sapuseven.untis.models.untis.masterdata.ExcuseStatus
+import com.sapuseven.untis.models.untis.masterdata.Holiday
+import com.sapuseven.untis.models.untis.masterdata.Klasse
 import com.sapuseven.untis.models.untis.masterdata.Room
+import com.sapuseven.untis.models.untis.masterdata.SchoolYear
+import com.sapuseven.untis.models.untis.masterdata.Subject
+import com.sapuseven.untis.models.untis.masterdata.Teacher
+import com.sapuseven.untis.models.untis.masterdata.TeachingMethod
+import com.sapuseven.untis.models.untis.masterdata.TimeGrid
 
 @Entity
 data class User(

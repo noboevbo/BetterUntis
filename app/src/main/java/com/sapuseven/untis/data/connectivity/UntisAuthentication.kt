@@ -6,7 +6,7 @@ import com.sapuseven.untis.models.untis.UntisAuth
 import org.joda.time.DateTime
 import java.security.InvalidKeyException
 import java.security.NoSuchAlgorithmException
-import java.util.*
+import java.util.Locale
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 

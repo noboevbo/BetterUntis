@@ -6,7 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import com.sapuseven.untis.activities.BaseComposeActivity
-import com.sapuseven.untis.helpers.config.*
+import com.sapuseven.untis.helpers.config.booleanDataStore
+import com.sapuseven.untis.helpers.config.floatDataStore
+import com.sapuseven.untis.helpers.config.intDataStore
+import com.sapuseven.untis.helpers.config.stringDataStore
+import com.sapuseven.untis.helpers.config.stringSetDataStore
 import com.sapuseven.untis.ui.preferences.materialColors
 
 val BaseComposeActivity.dataStorePreferences: DataStorePreferences

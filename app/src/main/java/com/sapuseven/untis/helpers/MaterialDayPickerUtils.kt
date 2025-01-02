@@ -2,7 +2,8 @@ package com.sapuseven.untis.helpers
 
 import com.sapuseven.untis.ui.common.Weekday
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 fun Weekday.toLocalizedString(): String =
 		SimpleDateFormat("EEEE", Locale.getDefault()).format(Calendar.getInstance().apply {

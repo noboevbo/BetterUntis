@@ -1,14 +1,28 @@
 package com.sapuseven.untis.views.weekview
 
 import android.content.Context
-import android.view.*
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_UP
+import android.view.ScaleGestureDetector
+import android.view.View
+import android.view.ViewConfiguration
 import android.widget.OverScroller
 import com.sapuseven.untis.views.weekview.config.WeekViewConfig
 import com.sapuseven.untis.views.weekview.config.WeekViewDrawConfig
-import com.sapuseven.untis.views.weekview.listeners.*
+import com.sapuseven.untis.views.weekview.listeners.EmptyViewClickListener
+import com.sapuseven.untis.views.weekview.listeners.EmptyViewLongPressListener
+import com.sapuseven.untis.views.weekview.listeners.EventClickListener
+import com.sapuseven.untis.views.weekview.listeners.EventLongPressListener
+import com.sapuseven.untis.views.weekview.listeners.ScaleListener
+import com.sapuseven.untis.views.weekview.listeners.ScrollListener
+import com.sapuseven.untis.views.weekview.listeners.TopLeftCornerClickListener
 import com.sapuseven.untis.views.weekview.loaders.WeekViewLoader
-import kotlin.math.*
+import kotlin.math.abs
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.round
+import kotlin.math.roundToInt
 
 internal class WeekViewGestureHandler<T>(
 		context: Context,

@@ -1,7 +1,6 @@
 package com.sapuseven.untis.models.untis
 
 import com.sapuseven.untis.helpers.SerializationUtils.getJSON
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import org.joda.time.LocalDateTime
 import org.junit.jupiter.api.Assertions

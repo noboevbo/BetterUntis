@@ -5,8 +5,7 @@ import android.text.format.DateFormat
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Locale
 import kotlin.math.max
 
 internal object DateUtils {

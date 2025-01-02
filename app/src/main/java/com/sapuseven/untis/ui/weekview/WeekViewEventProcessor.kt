@@ -1,7 +1,9 @@
 package com.sapuseven.untis.ui.weekview
 
 import org.joda.time.LocalDateTime
-import java.util.*
+import java.util.LinkedList
+import java.util.PriorityQueue
+import java.util.Queue
 
 
 private enum class EventType {

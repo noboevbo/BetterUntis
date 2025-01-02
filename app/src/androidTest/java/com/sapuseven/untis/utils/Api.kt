@@ -8,7 +8,6 @@ import com.sapuseven.untis.models.untis.UntisMasterData
 import com.sapuseven.untis.models.untis.params.UserDataParams
 import com.sapuseven.untis.models.untis.response.UserDataResponse
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.decodeFromString
 import org.junit.Assert
 
 suspend fun loadMasterData(apiUrl: String): UntisMasterData? {

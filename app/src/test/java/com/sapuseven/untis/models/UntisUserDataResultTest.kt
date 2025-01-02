@@ -2,7 +2,6 @@ package com.sapuseven.untis.models
 
 import com.sapuseven.untis.helpers.SerializationUtils.getJSON
 import com.sapuseven.untis.models.untis.response.UserDataResult
-import kotlinx.serialization.decodeFromString
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test

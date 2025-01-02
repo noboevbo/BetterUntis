@@ -5,7 +5,6 @@ import com.sapuseven.untis.views.weekview.WeekViewDisplayable
 import com.sapuseven.untis.views.weekview.WeekViewEvent
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants.MILLIS_PER_WEEK
-import java.util.*
 
 /**
  * This class is responsible for loading [WeekViewEvent]s into [WeekView]. It can handle

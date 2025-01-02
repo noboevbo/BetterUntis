@@ -21,7 +21,7 @@
 package com.sapuseven.untis.helpers
 
 import java.nio.charset.StandardCharsets
-import java.util.*
+import java.util.Locale
 import kotlin.experimental.or
 
 /**

@@ -11,7 +11,7 @@ import com.sapuseven.untis.views.weekview.DateUtils
 import com.sapuseven.untis.views.weekview.WeekView
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
-import java.util.*
+import java.util.Locale
 import kotlin.math.max
 import kotlin.math.min
 

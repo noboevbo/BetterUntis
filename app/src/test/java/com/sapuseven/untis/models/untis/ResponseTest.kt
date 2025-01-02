@@ -2,10 +2,15 @@ package com.sapuseven.untis.models.untis
 
 import com.sapuseven.untis.helpers.SerializationUtils.getJSON
 import com.sapuseven.untis.models.UntisSchoolInfo
-import com.sapuseven.untis.models.untis.response.*
-import kotlinx.serialization.decodeFromString
+import com.sapuseven.untis.models.untis.response.AppSharedSecretResponse
+import com.sapuseven.untis.models.untis.response.BaseResponse
+import com.sapuseven.untis.models.untis.response.SchoolSearchResponse
+import com.sapuseven.untis.models.untis.response.SchoolSearchResult
+import com.sapuseven.untis.models.untis.response.UserDataResponse
 import kotlinx.serialization.encodeToString
-import org.hamcrest.CoreMatchers.*
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.notNullValue
+import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 

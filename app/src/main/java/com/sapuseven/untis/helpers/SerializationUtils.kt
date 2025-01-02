@@ -1,6 +1,5 @@
 package com.sapuseven.untis.helpers
 
-import com.sapuseven.untis.BuildConfig
 import kotlinx.serialization.json.Json
 
 object SerializationUtils {

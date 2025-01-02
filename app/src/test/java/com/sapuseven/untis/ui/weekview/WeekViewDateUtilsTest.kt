@@ -3,12 +3,8 @@ package com.sapuseven.untis.ui.weekview
 import org.joda.time.DateTimeConstants
 import org.joda.time.DateTimeUtils
 import org.joda.time.LocalDate
-import org.junit.Assert
-import org.junit.Before
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
-
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource

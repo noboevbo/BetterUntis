@@ -24,7 +24,11 @@ import androidx.glance.appwidget.background
 import androidx.glance.appwidget.provideContent
 import androidx.glance.color.ColorProvider
 import androidx.glance.currentState
-import androidx.glance.layout.*
+import androidx.glance.layout.Alignment
+import androidx.glance.layout.Box
+import androidx.glance.layout.Column
+import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.fillMaxWidth
 import androidx.glance.text.Text
 import com.sapuseven.untis.R
 import com.sapuseven.untis.data.databases.UserDatabase

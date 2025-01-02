@@ -4,7 +4,6 @@ import android.view.View
 import com.sapuseven.untis.views.weekview.config.WeekViewConfig
 import com.sapuseven.untis.views.weekview.loaders.WeekViewLoader
 import org.joda.time.DateTime
-import java.util.*
 import kotlin.math.max
 
 internal class EventChipProvider<T>(

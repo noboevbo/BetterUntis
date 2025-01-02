@@ -2,7 +2,12 @@ package com.sapuseven.untis.views.weekview.drawers
 
 import android.graphics.Canvas
 import android.graphics.RectF
-import com.sapuseven.untis.views.weekview.*
+import com.sapuseven.untis.views.weekview.DrawingContext
+import com.sapuseven.untis.views.weekview.EventChip
+import com.sapuseven.untis.views.weekview.EventChipRectCalculator
+import com.sapuseven.untis.views.weekview.SplitRect
+import com.sapuseven.untis.views.weekview.WeekView
+import com.sapuseven.untis.views.weekview.WeekViewEvent
 import com.sapuseven.untis.views.weekview.config.WeekViewConfig
 import org.joda.time.DateTime
 

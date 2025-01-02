@@ -9,8 +9,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sapuseven.untis.activities.BaseComposeActivity
 import com.sapuseven.untis.activities.RoomFinder
 import com.sapuseven.untis.activities.RoomFinderState
-import com.sapuseven.untis.data.databases.RoomFinderDatabase
 import com.sapuseven.untis.data.databases.LegacyUserDatabase
+import com.sapuseven.untis.data.databases.RoomFinderDatabase
 import com.sapuseven.untis.helpers.timetable.TimetableDatabaseInterface
 import com.sapuseven.untis.mocks.MOCK_USER_ID
 import com.sapuseven.untis.mocks.timeGrid

@@ -1,9 +1,11 @@
 package com.sapuseven.untis.models
 
 import com.sapuseven.untis.helpers.SerializationUtils.getJSON
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
-import org.hamcrest.CoreMatchers.*
+import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.any
+import org.hamcrest.CoreMatchers.everyItem
+import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.hasSize
 import org.junit.Test
