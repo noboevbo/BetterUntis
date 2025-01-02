@@ -11,7 +11,7 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 28929494,
+      "versionCode": 28930909,
       "versionName": "4.2.0-beta01",
       "outputFile": "app-foss-release.apk"
     }
@@ -33,5 +33,5 @@
       ]
     }
   ],
-  "minSdkVersionForDexing": 21
+  "minSdkVersionForDexing": 24
 }

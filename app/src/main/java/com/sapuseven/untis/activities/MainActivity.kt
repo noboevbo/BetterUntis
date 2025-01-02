@@ -545,7 +545,7 @@ fun MainApp(state: NewMainAppState) {
 					endTime = state.weekViewPreferences.hourList.value.lastOrNull()?.endTime
 						?: LocalTime.MIDNIGHT,
 					endTimeOffset = navBarHeight,
-					hourHeight = 78.dp,
+					hourHeight = 87.dp,
 					hourList = state.weekViewPreferences.hourList.value,
 					dividerWidth = state.weekViewPreferences.dividerWidth,
 					colorScheme = state.weekViewPreferences.colorScheme,

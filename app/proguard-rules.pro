@@ -20,22 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keepattributes *Annotation*, InnerClasses
--dontnote kotlinx.serialization.SerializationKt
--keep,includedescriptorclasses class com.sapuseven.untis.**$$serializer { *; }
--keepclassmembers class com.sapuseven.untis.** {
-    *** Companion;
-}
--keepclasseswithmembers class com.sapuseven.untis.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
--keepclassmembernames class kotlinx.** {
-    volatile <fields>;
-}
--keepclasseswithmembers class com.sapuseven.untis.** implements com.sapuseven.untis.interfaces.TableModel { *; }
-
--keep public class * extends androidx.lifecycle.ViewModel {*;}
-
 # Please add these rules to your existing keep rules in order to suppress warnings.
 # This is generated automatically by the Android Gradle plugin.
 -dontwarn org.bouncycastle.jsse.BCSSLParameters

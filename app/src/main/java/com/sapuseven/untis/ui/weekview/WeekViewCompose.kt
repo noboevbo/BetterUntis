@@ -597,7 +597,7 @@ fun WeekViewCompose(
 	},
 	dayHeader: @Composable (day: LocalDate) -> Unit = { WeekViewHeaderDay(day = it) },
 	startDate: LocalDate = LocalDate.now(),
-	hourHeight: Dp = 78.dp,
+	hourHeight: Dp = 87.dp,
 	hourList: List<WeekViewHour> = emptyList(),
 	colorScheme: WeekViewColorScheme = WeekViewColorScheme.default(),
 	dividerWidth: Float = Stroke.HairlineWidth,
