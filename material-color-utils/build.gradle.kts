@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation("com.google.errorprone:error_prone_annotations:2.18.0")
+    implementation(libs.error.prone.annotations)
 }
 
 java {

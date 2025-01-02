@@ -3,7 +3,6 @@ package com.sapuseven.untis.views.weekview
 import android.graphics.Color
 import org.joda.time.DateTime
 
-@Deprecated("Replaced by WeekViewCompose Event")
 open class WeekViewEvent<T>(
 	var id: Long = 0,
 	var title: String = "",
