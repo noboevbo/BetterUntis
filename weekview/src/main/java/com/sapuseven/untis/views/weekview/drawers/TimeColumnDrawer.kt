@@ -44,7 +44,7 @@ class TimeColumnDrawer(private val config: WeekViewConfig) : BaseDrawer {
 
 			if (top - (hourTop - lastHourTop) < bottom) {
 				val bottomCoordinate =
-					top - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
+					top - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2 - 25
 				val topCoordinate =
 					top - (hourTop - lastHourTop) - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
 

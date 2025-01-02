@@ -545,7 +545,7 @@ fun MainApp(state: NewMainAppState) {
 					endTime = state.weekViewPreferences.hourList.value.lastOrNull()?.endTime
 						?: LocalTime.MIDNIGHT,
 					endTimeOffset = navBarHeight,
-					hourHeight = /*state.weekViewPreferences.hourHeight ?:*/ 72.dp,
+					hourHeight = 78.dp,
 					hourList = state.weekViewPreferences.hourList.value,
 					dividerWidth = state.weekViewPreferences.dividerWidth,
 					colorScheme = state.weekViewPreferences.colorScheme,
@@ -553,7 +553,7 @@ fun MainApp(state: NewMainAppState) {
 
 				val timeColumnWidth = with(LocalDensity.current) {
 					/*state.weekView.value?.config?.timeColumnWidth?.toDp()
-						?: */48.dp
+						?: */62.dp
 				}
 
 				Text(
@@ -564,21 +564,6 @@ fun MainApp(state: NewMainAppState) {
 						.bottomInsets()
 						.disabled(state.isAnonymous)
 				)
-
-				IconButton(
-					modifier = Modifier
-						.align(Alignment.BottomEnd)
-						.padding(end = 8.dp)
-						.bottomInsets(),
-					onClick = {
-						state.showFeedback()
-					}
-				) {
-					Icon(
-						painter = painterResource(R.drawable.all_feedback),
-						contentDescription = "Give feedback"
-					)
-				}
 
 				if (state.isAnonymous) {
 					Column(
