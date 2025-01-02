@@ -8,7 +8,7 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.JsonDecoder
 
-@Serializable
+@Serializable(UnknownObject.Companion::class)
 class UnknownObject(val jsonString: String?) {
 	@OptIn(ExperimentalSerializationApi::class)
 	@Serializer(forClass = UnknownObject::class)

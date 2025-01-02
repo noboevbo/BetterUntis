@@ -10,7 +10,7 @@ import org.joda.time.LocalDate
 import org.joda.time.format.ISODateTimeFormat
 
 // TODO: Change all occurrences of startDate or endDate in string format to this type
-@Serializable
+@Serializable(UntisDate.Companion::class)
 class UntisDate(
 		val date: String
 ) {

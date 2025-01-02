@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.material3.TextFieldDefaults.DecorationBox
@@ -120,7 +121,7 @@ fun ElementPickerDialogFullscreen(
 							search = ""
 						}) {
 							Icon(
-								imageVector = Icons.Outlined.ArrowBack,
+								imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
 								contentDescription = stringResource(id = R.string.all_back)
 							)
 						}

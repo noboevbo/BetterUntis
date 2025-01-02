@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Delete
@@ -92,7 +93,7 @@ fun RoomFinder(state: RoomFinderState) {
 				navigationIcon = {
 					IconButton(onClick = { state.onBackClick() }) {
 						Icon(
-							imageVector = Icons.Outlined.ArrowBack,
+							imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
 							contentDescription = stringResource(id = R.string.all_back)
 						)
 					}
@@ -134,7 +135,7 @@ fun RoomFinder(state: RoomFinderState) {
 							hourIndex = state.currentHourIndex,
 							onDelete = { state.onRoomListItemDeleteClick(it) },
 							modifier = Modifier
-								.animateItemPlacement()
+								.animateItem()
 								.clickable { state.onRoomListItemClick(it) }
 						)
 					}

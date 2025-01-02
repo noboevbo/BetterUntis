@@ -9,7 +9,7 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import org.joda.time.LocalTime
 
-@Serializable
+@Serializable(UntisTime.Companion::class)
 class UntisTime(
 		val time: String
 ) {

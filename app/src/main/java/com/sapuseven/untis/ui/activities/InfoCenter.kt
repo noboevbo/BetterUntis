@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.*
@@ -59,7 +60,7 @@ fun InfoCenter(state: InfoCenterState) {
 				navigationIcon = {
 					IconButton(onClick = { state.onBackClick() }) {
 						Icon(
-							imageVector = Icons.Outlined.ArrowBack,
+							imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
 							contentDescription = stringResource(id = R.string.all_back)
 						)
 					}

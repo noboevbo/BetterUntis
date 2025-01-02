@@ -17,8 +17,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowBack
-import androidx.compose.material.icons.outlined.ArrowForward
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -349,7 +349,7 @@ class LoginDataInputActivity : BaseComposeActivity() {
 									if (loading)
 										SmallCircularProgressIndicator()
 									else
-										Icon(Icons.Outlined.ArrowForward, contentDescription = null)
+										Icon(Icons.AutoMirrored.Outlined.ArrowForward, contentDescription = null)
 								},
 								text = { Text(stringResource(id = R.string.logindatainput_login)) },
 								onClick = {
@@ -377,7 +377,7 @@ class LoginDataInputActivity : BaseComposeActivity() {
 										finish()
 									}) {
 										Icon(
-											imageVector = Icons.Outlined.ArrowBack,
+											imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
 											contentDescription = stringResource(id = R.string.all_back)
 										)
 									}

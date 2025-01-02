@@ -1,6 +1,7 @@
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 
 plugins {
+	id("org.jetbrains.kotlin.plugin.compose")
 	id("com.android.application")
 	id("com.mikepenz.aboutlibraries.plugin")
 	id("de.mannodermaus.android-junit5")
