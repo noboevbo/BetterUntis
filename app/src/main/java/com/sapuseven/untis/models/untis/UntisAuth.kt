@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UntisAuth(
-		val user: String,
-		val otp: Long,
-		val clientTime: Long
+	val user: String,
+	val otp: Long,
+	val clientTime: Long
 )

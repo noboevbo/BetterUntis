@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AbsenceResponse(
-		val result: AbsenceResult? = null
+	val result: AbsenceResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class AbsenceResult(
-		val absences: List<UntisAbsence>
+	val absences: List<UntisAbsence>
 )

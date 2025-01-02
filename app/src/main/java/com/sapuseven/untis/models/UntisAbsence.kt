@@ -5,18 +5,18 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UntisAbsence(
-		var id: Int,
-		var studentId: Int,
-		var klasseId: Int,
-		var startDateTime: UntisDateTime,
-		var endDateTime: UntisDateTime,
-		var owner: Boolean,
-		var excused: Boolean,
-		var excuse: UnknownObject?,
-		var absenceReasonId: Int,
-		var absenceReason: String,
-		var text: String,
-		var manualNotificationStatus: String? = null,
-		var autoNotificationStatus: String? = null,
-		var studentOfAge: Boolean
+	var id: Int,
+	var studentId: Int,
+	var klasseId: Int,
+	var startDateTime: UntisDateTime,
+	var endDateTime: UntisDateTime,
+	var owner: Boolean,
+	var excused: Boolean,
+	var excuse: UnknownObject?,
+	var absenceReasonId: Int,
+	var absenceReason: String,
+	var text: String,
+	var manualNotificationStatus: String? = null,
+	var autoNotificationStatus: String? = null,
+	var studentOfAge: Boolean
 )

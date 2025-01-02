@@ -35,12 +35,12 @@ import kotlin.math.floor
 import kotlin.math.min
 
 class WeekView<T>(
-		context: Context,
-		attrs: AttributeSet? = null
+	context: Context,
+	attrs: AttributeSet? = null
 ) :
-		View(context, attrs),
-		WeekViewGestureHandler.Listener,
-		WeekViewViewState.UpdateListener {
+	View(context, attrs),
+	WeekViewGestureHandler.Listener,
+	WeekViewViewState.UpdateListener {
 	val config: WeekViewConfig = WeekViewConfig(context, attrs)
 	private val data: WeekViewData<T> = WeekViewData()
 
@@ -80,7 +80,8 @@ class WeekView<T>(
 	var eventTextBold: Boolean
 		get() = config.drawConfig.eventTextPaint.typeface == Typeface.DEFAULT_BOLD
 		set(bold) {
-			config.drawConfig.eventTextPaint.typeface = if (bold) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+			config.drawConfig.eventTextPaint.typeface =
+				if (bold) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
 			invalidate()
 		}
 
@@ -360,12 +361,17 @@ class WeekView<T>(
 		val oldFirstVisibleDay = viewState.firstVisibleDay
 		val today = DateTime.now()
 
-		val daysScrolled = (ceil((config.drawConfig.currentOrigin.x / config.totalDayWidth).toDouble()) * -1).toInt()
-		val newFirstVisibleDay = today.plusDays(DateUtils.actualDays(daysScrolled, config.weekLength)-1)
+		val daysScrolled =
+			(ceil((config.drawConfig.currentOrigin.x / config.totalDayWidth).toDouble()) * -1).toInt()
+		val newFirstVisibleDay =
+			today.plusDays(DateUtils.actualDays(daysScrolled, config.weekLength) - 1)
 
 		if (viewState.shouldRefreshEvents || oldFirstVisibleDay != newFirstVisibleDay) {
 			viewState.firstVisibleDay = newFirstVisibleDay
-			scrollListener?.onFirstVisibleDayChanged(newFirstVisibleDay.toLocalDate(), oldFirstVisibleDay?.toLocalDate())
+			scrollListener?.onFirstVisibleDayChanged(
+				newFirstVisibleDay.toLocalDate(),
+				oldFirstVisibleDay?.toLocalDate()
+			)
 		}
 	}
 
@@ -379,12 +385,18 @@ class WeekView<T>(
 
 	private fun calculateWidthPerDay() {
 		// Calculate the available width for each day
-		config.drawConfig.widthPerDay = (width - config.drawConfig.timeColumnWidth + config.drawConfig.daySeparatorPaint.strokeWidth) / config.visibleDays
+		config.drawConfig.widthPerDay =
+			(width - config.drawConfig.timeColumnWidth + config.drawConfig.daySeparatorPaint.strokeWidth) / config.visibleDays
 	}
 
 	private fun clipEventsRect(canvas: Canvas) {
 		// Clip to event area.
-		canvas.clipRect(config.drawConfig.timeColumnWidth, config.drawConfig.headerHeight, viewWidth.toFloat(), viewHeight.toFloat())
+		canvas.clipRect(
+			config.drawConfig.timeColumnWidth,
+			config.drawConfig.headerHeight,
+			viewWidth.toFloat(),
+			viewHeight.toFloat()
+		)
 	}
 
 	override fun onScaled() {
@@ -438,12 +450,16 @@ class WeekView<T>(
 		val offsetInWeek = DateUtils.offsetInWeek(today, config.firstDayOfWeek)
 		val firstDay = today.minusDays(offsetInWeek)
 
-		val dayDiff = DateUtils.displayedDays(Days.daysBetween(firstDay, date.withTimeAtStartOfDay()).days, config.weekLength).toDouble()
+		val dayDiff = DateUtils.displayedDays(
+			Days.daysBetween(firstDay, date.withTimeAtStartOfDay()).days,
+			config.weekLength
+		).toDouble()
 		val weekDiff = dayDiff / config.weekLength.toDouble()
 
 		val leftOriginCount = floor(if (config.snapToWeek) weekDiff else dayDiff - offsetInWeek)
 
-		val nearestOrigin = -(leftOriginCount.toFloat() * config.totalDayWidth * if (config.snapToWeek) config.visibleDays else 1).toInt()
+		val nearestOrigin =
+			-(leftOriginCount.toFloat() * config.totalDayWidth * if (config.snapToWeek) config.visibleDays else 1).toInt()
 
 		if (nearestOrigin - config.drawConfig.currentOrigin.x != 0f) {
 			gestureHandler.scroller.forceFinished(true)
@@ -454,7 +470,13 @@ class WeekView<T>(
 
 			val duration = config.scrollDuration
 
-			gestureHandler.scroller.startScroll(startX, config.drawConfig.currentOrigin.y.toInt(), distanceX, 0, duration)
+			gestureHandler.scroller.startScroll(
+				startX,
+				config.drawConfig.currentOrigin.y.toInt(),
+				distanceX,
+				0,
+				duration
+			)
 			gestureHandler.listener.onScrolled()
 			viewState.scrollToDay = null
 		}
@@ -482,7 +504,10 @@ class WeekView<T>(
 			return
 		}
 
-		var verticalOffset = (config.hourHeight * min(hour.toFloat(), config.hoursPerDay()) + config.endTimeOffset).toInt()
+		var verticalOffset = (config.hourHeight * min(
+			hour.toFloat(),
+			config.hoursPerDay()
+		) + config.endTimeOffset).toInt()
 
 		val dayHeight = config.totalDayHeight
 		val viewHeight = height.toDouble()
@@ -504,8 +529,8 @@ class WeekView<T>(
 
 	fun swipeRefreshAvailable(): Boolean {
 		return (gestureHandler.currentFlingDirection == WeekViewGestureHandler.Direction.NONE
-				&& gestureHandler.currentScrollDirection == WeekViewGestureHandler.Direction.NONE
-				&& config.drawConfig.currentOrigin.y == 0f)
+			&& gestureHandler.currentScrollDirection == WeekViewGestureHandler.Direction.NONE
+			&& config.drawConfig.currentOrigin.y == 0f)
 	}
 
 	fun addHolidays(holidays: List<HolidayChip>) {

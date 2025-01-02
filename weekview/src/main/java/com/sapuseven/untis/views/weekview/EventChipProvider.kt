@@ -7,9 +7,9 @@ import org.joda.time.DateTime
 import kotlin.math.max
 
 internal class EventChipProvider<T>(
-		private val config: WeekViewConfig,
-		private val data: WeekViewData<T>,
-		private val viewState: WeekViewViewState
+	private val config: WeekViewConfig,
+	private val data: WeekViewData<T>,
+	private val viewState: WeekViewViewState
 ) {
 	var weekViewLoader: WeekViewLoader<T>? = null
 
@@ -41,18 +41,21 @@ internal class EventChipProvider<T>(
 
 		// Check if periods are already fetched and skip them
 		if (data.previousPeriodEvents != null
-				&& data.currentPeriodEvents != null
-				&& data.nextPeriodEvents != null) {
+			&& data.currentPeriodEvents != null
+			&& data.nextPeriodEvents != null
+		) {
 			when (periodToFetch) {
 				data.fetchedPeriod - 1 -> {
 					currentPeriodEvents = data.previousPeriodEvents
 					nextPeriodEvents = data.currentPeriodEvents
 				}
+
 				data.fetchedPeriod -> {
 					previousPeriodEvents = data.previousPeriodEvents
 					currentPeriodEvents = data.currentPeriodEvents
 					nextPeriodEvents = data.nextPeriodEvents
 				}
+
 				data.fetchedPeriod + 1 -> {
 					previousPeriodEvents = data.currentPeriodEvents
 					currentPeriodEvents = data.nextPeriodEvents
@@ -60,9 +63,12 @@ internal class EventChipProvider<T>(
 			}
 		}
 
-		if (currentPeriodEvents == null) currentPeriodEvents = weekViewLoader?.onLoad(periodToFetch)?.sorted()
-		if (previousPeriodEvents == null) previousPeriodEvents = weekViewLoader?.onLoad(periodToFetch - 1)?.sorted()
-		if (nextPeriodEvents == null) nextPeriodEvents = weekViewLoader?.onLoad(periodToFetch + 1)?.sorted()
+		if (currentPeriodEvents == null) currentPeriodEvents =
+			weekViewLoader?.onLoad(periodToFetch)?.sorted()
+		if (previousPeriodEvents == null) previousPeriodEvents =
+			weekViewLoader?.onLoad(periodToFetch - 1)?.sorted()
+		if (nextPeriodEvents == null) nextPeriodEvents =
+			weekViewLoader?.onLoad(periodToFetch + 1)?.sorted()
 
 		// Clear events.
 		data.eventChips.clear()
@@ -158,8 +164,10 @@ internal class EventChipProvider<T>(
 					eventChip.width = 1.0f / columns.size
 					eventChip.left = j / columns.size
 
-					eventChip.top = (eventChip.event.startTime.hourOfDay * 60 + eventChip.event.startTime.minuteOfHour - config.startTime).toFloat()
-					eventChip.bottom = (eventChip.event.endTime.hourOfDay * 60 + eventChip.event.endTime.minuteOfHour - config.startTime).toFloat()
+					eventChip.top =
+						(eventChip.event.startTime.hourOfDay * 60 + eventChip.event.startTime.minuteOfHour - config.startTime).toFloat()
+					eventChip.bottom =
+						(eventChip.event.endTime.hourOfDay * 60 + eventChip.event.endTime.minuteOfHour - config.startTime).toFloat()
 				}
 				j++
 			}

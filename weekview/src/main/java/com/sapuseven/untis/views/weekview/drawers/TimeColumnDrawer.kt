@@ -14,7 +14,13 @@ class TimeColumnDrawer(private val config: WeekViewConfig) : BaseDrawer {
 		val bottom = WeekView.viewHeight.toFloat()
 
 		// Draw the background color for the time column.
-		canvas.drawRect(0f, top, drawConfig.timeColumnWidth, bottom, drawConfig.timeColumnBackgroundPaint)
+		canvas.drawRect(
+			0f,
+			top,
+			drawConfig.timeColumnWidth,
+			bottom,
+			drawConfig.timeColumnBackgroundPaint
+		)
 
 		canvas.restore()
 		canvas.save()
@@ -29,34 +35,58 @@ class TimeColumnDrawer(private val config: WeekViewConfig) : BaseDrawer {
 			val hourTop = config.hourHeight * (config.hourLines[i] - config.startTime) / 60.0f
 			top = headerHeight + drawConfig.currentOrigin.y + hourTop + headerBottomMargin
 
-			val lastHourTop = if (i > 0) config.hourHeight * (config.hourLines[i - 1] - config.startTime) / 60.0f else 0.0f
+			val lastHourTop =
+				if (i > 0) config.hourHeight * (config.hourLines[i - 1] - config.startTime) / 60.0f else 0.0f
 
 			// Draw the text if its y position is not outside of the visible area.
 			// The pivot point of the text is the point at the bottom-right corner.
 			val time = drawConfig.dateTimeInterpreter.interpretTime(config.hourLines[i])
 
 			if (top - (hourTop - lastHourTop) < bottom) {
-				val bottomCoordinate = top - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
-				val topCoordinate = top - (hourTop - lastHourTop) - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
+				val bottomCoordinate =
+					top - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
+				val topCoordinate =
+					top - (hourTop - lastHourTop) - config.hourSeparatorStrokeWidth - config.timeColumnPadding / 2
 
 				if (drawConfig.timeTextVisibility) {
 					if (i % 2 == 0) {
 						if (config.hourLines[i + 1] - config.hourLines[i] > 30)
-							canvas.drawText(time, config.timeColumnPadding.toFloat(), top + drawConfig.timeTextHeight + config.timeColumnPadding / 2, drawConfig.timeTextTopPaint)
+							canvas.drawText(
+								time,
+								config.timeColumnPadding.toFloat(),
+								top + drawConfig.timeTextHeight + config.timeColumnPadding / 2,
+								drawConfig.timeTextTopPaint
+							)
 					} else
 						if (config.hourLines[i] - config.hourLines[i - 1] > 30)
-							canvas.drawText(time, config.timeColumnPadding + drawConfig.timeTextWidth, bottomCoordinate, drawConfig.timeTextBottomPaint)
+							canvas.drawText(
+								time,
+								config.timeColumnPadding + drawConfig.timeTextWidth,
+								bottomCoordinate,
+								drawConfig.timeTextBottomPaint
+							)
 				}
 
 				if (i % 2 == 1)
-					canvas.drawText(config.hourLabels[i / 2], config.timeColumnPadding + drawConfig.timeTextWidth / 2, topCoordinate + (bottomCoordinate - topCoordinate + drawConfig.timeCaptionHeight + config.timeColumnPadding) / 2, drawConfig.timeCaptionPaint)
+					canvas.drawText(
+						config.hourLabels[i / 2],
+						config.timeColumnPadding + drawConfig.timeTextWidth / 2,
+						topCoordinate + (bottomCoordinate - topCoordinate + drawConfig.timeCaptionHeight + config.timeColumnPadding) / 2,
+						drawConfig.timeCaptionPaint
+					)
 			}
 		}
 
 		// Draw the vertical time column separator
 		if (config.showTimeColumnSeparator) {
 			val lineX = drawConfig.timeColumnWidth - config.timeColumnSeparatorStrokeWidth
-			canvas.drawLine(lineX, drawConfig.headerHeight, lineX, bottom, drawConfig.timeColumnSeparatorPaint)
+			canvas.drawLine(
+				lineX,
+				drawConfig.headerHeight,
+				lineX,
+				bottom,
+				drawConfig.timeColumnSeparatorPaint
+			)
 		}
 
 		canvas.restore()

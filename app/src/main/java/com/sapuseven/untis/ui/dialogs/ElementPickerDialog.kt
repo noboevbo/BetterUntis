@@ -399,10 +399,12 @@ fun ElementPickerTypeSelection(
 						contentDescription = null
 					)
 				},
-				label = { AbbreviatedText(
-					text = stringResource(id = R.string.all_personal),
-					abbreviatedText = stringResource(id = R.string.all_personal_abbr)
-				) },
+				label = {
+					AbbreviatedText(
+						text = stringResource(id = R.string.all_personal),
+						abbreviatedText = stringResource(id = R.string.all_personal_abbr)
+					)
+				},
 				selected = false,
 				onClick = {
 					onSelect(null)

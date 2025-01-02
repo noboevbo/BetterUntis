@@ -15,14 +15,31 @@ class HeaderRowDrawer(private val config: WeekViewConfig) : BaseDrawer {
 
 		// Hide everything in the top left corner
 		canvas.clipRect(0f, 0f, config.drawConfig.timeColumnWidth, config.drawConfig.headerHeight)
-		canvas.drawRect(0f, 0f, config.drawConfig.timeColumnWidth, config.drawConfig.headerHeight, config.drawConfig.headerBackgroundPaint)
+		canvas.drawRect(
+			0f,
+			0f,
+			config.drawConfig.timeColumnWidth,
+			config.drawConfig.headerHeight,
+			config.drawConfig.headerBackgroundPaint
+		)
 
 		canvas.restore()
 		canvas.save()
 
 		// Clip to paint header row only.
-		canvas.clipRect(config.drawConfig.timeColumnWidth, 0f, width.toFloat(), config.drawConfig.headerHeight)
-		canvas.drawRect(0f, 0f, width.toFloat(), config.drawConfig.headerHeight, config.drawConfig.headerBackgroundPaint)
+		canvas.clipRect(
+			config.drawConfig.timeColumnWidth,
+			0f,
+			width.toFloat(),
+			config.drawConfig.headerHeight
+		)
+		canvas.drawRect(
+			0f,
+			0f,
+			width.toFloat(),
+			config.drawConfig.headerHeight,
+			config.drawConfig.headerBackgroundPaint
+		)
 
 		canvas.restore()
 		canvas.save()

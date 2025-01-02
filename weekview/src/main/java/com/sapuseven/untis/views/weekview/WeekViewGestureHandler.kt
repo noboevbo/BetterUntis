@@ -25,10 +25,10 @@ import kotlin.math.round
 import kotlin.math.roundToInt
 
 internal class WeekViewGestureHandler<T>(
-		context: Context,
-		view: View,
-		private val config: WeekViewConfig,
-		private val data: WeekViewData<T>
+	context: Context,
+	view: View,
+	private val config: WeekViewConfig,
+	private val data: WeekViewData<T>
 ) : GestureDetector.SimpleOnGestureListener() {
 	var listener: Listener
 	var scroller: OverScroller
@@ -61,23 +61,24 @@ internal class WeekViewGestureHandler<T>(
 		minimumFlingVelocity = ViewConfiguration.get(context).scaledMinimumFlingVelocity
 		scaledTouchSlop = ViewConfiguration.get(context).scaledTouchSlop
 
-		scaleDetector = ScaleGestureDetector(context, object : ScaleGestureDetector.OnScaleGestureListener {
-			override fun onScaleEnd(detector: ScaleGestureDetector) {
-				isZooming = false
-			}
+		scaleDetector =
+			ScaleGestureDetector(context, object : ScaleGestureDetector.OnScaleGestureListener {
+				override fun onScaleEnd(detector: ScaleGestureDetector) {
+					isZooming = false
+				}
 
-			override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
-				isZooming = true
-				return true
-			}
+				override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
+					isZooming = true
+					return true
+				}
 
-			override fun onScale(detector: ScaleGestureDetector): Boolean {
-				val hourHeight = this@WeekViewGestureHandler.config.hourHeight.toFloat()
-				drawConfig.newHourHeight = (hourHeight * detector.scaleFactor).roundToInt()
-				listener.onScaled()
-				return true
-			}
-		})
+				override fun onScale(detector: ScaleGestureDetector): Boolean {
+					val hourHeight = this@WeekViewGestureHandler.config.hourHeight.toFloat()
+					drawConfig.newHourHeight = (hourHeight * detector.scaleFactor).roundToInt()
+					listener.onScaled()
+					return true
+				}
+			})
 	}
 
 	override fun onDown(e: MotionEvent): Boolean {
@@ -85,7 +86,12 @@ internal class WeekViewGestureHandler<T>(
 		return true
 	}
 
-	override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+	override fun onScroll(
+		e1: MotionEvent?,
+		e2: MotionEvent,
+		distanceX: Float,
+		distanceY: Float
+	): Boolean {
 		if (isZooming) return true
 
 		val absDistanceX = abs(distanceX)
@@ -105,16 +111,19 @@ internal class WeekViewGestureHandler<T>(
 					Direction.VERTICAL
 				}
 			}
+
 			Direction.LEFT -> {
 				// Change direction if there was enough change.
 				if (absDistanceX > absDistanceY && distanceX < -scaledTouchSlop)
 					currentScrollDirection = Direction.RIGHT
 			}
+
 			Direction.RIGHT -> {
 				// Change direction if there was enough change.
 				if (absDistanceX > absDistanceY && distanceX > scaledTouchSlop)
 					currentScrollDirection = Direction.LEFT
 			}
+
 			else -> {
 			}
 		}
@@ -125,29 +134,40 @@ internal class WeekViewGestureHandler<T>(
 				drawConfig.currentOrigin.x -= distanceX * config.xScrollingSpeed
 				listener.onScrolled()
 			}
+
 			Direction.VERTICAL -> {
 				drawConfig.currentOrigin.y -= distanceY
 				listener.onScrolled()
 			}
+
 			else -> {
 			}
 		}
 		return true
 	}
 
-	override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
+	override fun onFling(
+		e1: MotionEvent?,
+		e2: MotionEvent,
+		velocityX: Float,
+		velocityY: Float
+	): Boolean {
 		if (isZooming) return true
 
 		if (currentFlingDirection == Direction.LEFT && !config.horizontalFlingEnabled ||
-				currentFlingDirection == Direction.RIGHT && !config.horizontalFlingEnabled ||
-				currentFlingDirection == Direction.VERTICAL && !config.verticalFlingEnabled)
+			currentFlingDirection == Direction.RIGHT && !config.horizontalFlingEnabled ||
+			currentFlingDirection == Direction.VERTICAL && !config.verticalFlingEnabled
+		)
 			return true
 
 		//scroller.forceFinished(true)
 
 		currentFlingDirection = currentScrollDirection
 		when (currentFlingDirection) {
-			Direction.LEFT, Direction.RIGHT -> if (config.horizontalFlingEnabled) onFlingHorizontal(velocityX)
+			Direction.LEFT, Direction.RIGHT -> if (config.horizontalFlingEnabled) onFlingHorizontal(
+				velocityX
+			)
+
 			Direction.VERTICAL -> if (config.verticalFlingEnabled) onFlingVertical(velocityY)
 			Direction.NONE -> {
 			}
@@ -267,8 +287,10 @@ internal class WeekViewGestureHandler<T>(
 		leftDays = when (currentScrollDirection) {
 			Direction.LEFT -> // snap to last day
 				floor(leftDays)
+
 			Direction.RIGHT -> // snap to next day
 				ceil(leftDays)
+
 			else -> // snap to nearest day
 				round(leftDays)
 		}
@@ -283,11 +305,12 @@ internal class WeekViewGestureHandler<T>(
 			scroller.forceFinished(true)
 
 			scroller.startScroll(
-					drawConfig.currentOrigin.x.toInt(),
-					drawConfig.currentOrigin.y.toInt(),
-					-nearestOrigin,
-					0,
-					(abs(nearestOrigin) / drawConfig.widthPerDay * config.scrollDuration).toInt())
+				drawConfig.currentOrigin.x.toInt(),
+				drawConfig.currentOrigin.y.toInt(),
+				-nearestOrigin,
+				0,
+				(abs(nearestOrigin) / drawConfig.widthPerDay * config.scrollDuration).toInt()
+			)
 
 			listener.onScrolled()
 		}

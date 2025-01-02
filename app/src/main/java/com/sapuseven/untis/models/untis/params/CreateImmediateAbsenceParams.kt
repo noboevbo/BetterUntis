@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CreateImmediateAbsenceParams(
-		val periodId: Int,
-		val studentId: Int,
-		val startTime: UntisTime,
-		val endTime: UntisTime,
-		val auth: UntisAuth
+	val periodId: Int,
+	val studentId: Int,
+	val startTime: UntisTime,
+	val endTime: UntisTime,
+	val auth: UntisAuth
 ) : BaseParams()

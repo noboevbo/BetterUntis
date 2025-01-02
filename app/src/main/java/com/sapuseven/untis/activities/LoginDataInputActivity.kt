@@ -173,7 +173,7 @@ class LoginDataInputActivity : BaseComposeActivity() {
 				var advanced by rememberSaveable {
 					mutableStateOf(
 						proxyUrl.value?.isNotEmpty() == true ||
-								apiUrl.value?.isNotEmpty() == true
+							apiUrl.value?.isNotEmpty() == true
 					)
 				}
 
@@ -264,26 +264,26 @@ class LoginDataInputActivity : BaseComposeActivity() {
 								}
 							}).run {
 							val schoolInfo = (
-									when {
-										schoolInfoFromSearch != null -> schoolInfoFromSearch
-										advanced && !apiUrl.value.isNullOrBlank() -> UntisSchoolInfo(
-											server = "",
-											useMobileServiceUrlAndroid = true,
-											useMobileServiceUrlIos = true,
-											address = "",
-											displayName = schoolId.value ?: "",
-											loginName = schoolId.value ?: "",
-											schoolId = schoolId.value?.toIntOrNull()
-												?: 0,
-											serverUrl = apiUrl.value ?: "",
-											mobileServiceUrl = apiUrl.value,
-											tenantId = 0
-										)
+								when {
+									schoolInfoFromSearch != null -> schoolInfoFromSearch
+									advanced && !apiUrl.value.isNullOrBlank() -> UntisSchoolInfo(
+										server = "",
+										useMobileServiceUrlAndroid = true,
+										useMobileServiceUrlIos = true,
+										address = "",
+										displayName = schoolId.value ?: "",
+										loginName = schoolId.value ?: "",
+										schoolId = schoolId.value?.toIntOrNull()
+											?: 0,
+										serverUrl = apiUrl.value ?: "",
+										mobileServiceUrl = apiUrl.value,
+										tenantId = 0
+									)
 
-										else -> loadSchoolInfo(
-											schoolId.value ?: ""
-										)
-									}) ?: return@run
+									else -> loadSchoolInfo(
+										schoolId.value ?: ""
+									)
+								}) ?: return@run
 							val untisApiUrl =
 								if (advanced && !apiUrl.value.isNullOrBlank())
 									apiUrl.value ?: ""
@@ -382,12 +382,16 @@ class LoginDataInputActivity : BaseComposeActivity() {
 									if (loading)
 										SmallCircularProgressIndicator()
 									else
-										Icon(Icons.AutoMirrored.Outlined.ArrowForward, contentDescription = null)
+										Icon(
+											Icons.AutoMirrored.Outlined.ArrowForward,
+											contentDescription = null
+										)
 								},
 								text = { Text(stringResource(id = R.string.logindatainput_login)) },
 								onClick = {
 									validate = true
-									val allValid = schoolIdValid.value && usernameValid.value && proxyUrlValid.value && apiUrlValid.value
+									val allValid =
+										schoolIdValid.value && usernameValid.value && proxyUrlValid.value && apiUrlValid.value
 									if (allValid) {
 										snackbarHostState.currentSnackbarData?.dismiss()
 										loadData()
@@ -516,7 +520,8 @@ class LoginDataInputActivity : BaseComposeActivity() {
 										valid = proxyUrlValid,
 										validate = validate,
 										validator = {
-											it.isNullOrEmpty() || Patterns.WEB_URL.matcher(it).matches()
+											it.isNullOrEmpty() || Patterns.WEB_URL.matcher(it)
+												.matches()
 										},
 										errorText = stringResource(id = R.string.logindatainput_error_invalid_url)
 									)
@@ -529,7 +534,8 @@ class LoginDataInputActivity : BaseComposeActivity() {
 										valid = apiUrlValid,
 										validate = validate,
 										validator = {
-											it.isNullOrEmpty() || Patterns.WEB_URL.matcher(it).matches()
+											it.isNullOrEmpty() || Patterns.WEB_URL.matcher(it)
+												.matches()
 										},
 										errorText = stringResource(id = R.string.logindatainput_error_invalid_url)
 									)

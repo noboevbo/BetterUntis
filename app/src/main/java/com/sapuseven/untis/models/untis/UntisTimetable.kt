@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UntisTimetable(
-		val displayableStartDate: String,
-		val displayableEndDate: String,
-		val periods: List<Period>
+	val displayableStartDate: String,
+	val displayableEndDate: String,
+	val periods: List<Period>
 )

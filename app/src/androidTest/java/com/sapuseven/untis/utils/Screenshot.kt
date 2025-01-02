@@ -29,7 +29,8 @@ fun ComposeContentTestRule.takeScreenshot(file: String, useRoot: Boolean = false
 }
 
 fun Bitmap.save(file: String) {
-	val basePath = InstrumentationRegistry.getInstrumentation().targetContext.filesDir.canonicalPath + "/screenshots"
+	val basePath =
+		InstrumentationRegistry.getInstrumentation().targetContext.filesDir.canonicalPath + "/screenshots"
 	File(basePath).mkdirs()
 	FileOutputStream(File(basePath, file)).use { out ->
 		compress(Bitmap.CompressFormat.PNG, 100, out)
@@ -37,7 +38,8 @@ fun Bitmap.save(file: String) {
 }
 
 fun loadScreenshot(file: String): Bitmap {
-	val basePath = InstrumentationRegistry.getInstrumentation().targetContext.filesDir.canonicalPath + "/screenshots"
+	val basePath =
+		InstrumentationRegistry.getInstrumentation().targetContext.filesDir.canonicalPath + "/screenshots"
 	return BitmapFactory.decodeStream(FileInputStream(File(basePath, file)))
 }
 

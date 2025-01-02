@@ -14,7 +14,8 @@ object UserDatabaseQueryHelper {
 	inline fun <reified T : Any> generateCreateTable(): String? {
 		val tableName = generateTableName<T>()
 		tableName?.let { _ ->
-			var query = "CREATE TABLE $tableName (${BaseColumns._ID} INTEGER PRIMARY KEY, ${COLUMN_NAME_USER_ID} INTEGER"
+			var query =
+				"CREATE TABLE $tableName (${BaseColumns._ID} INTEGER PRIMARY KEY, ${COLUMN_NAME_USER_ID} INTEGER"
 			T::class.declaredMemberProperties.forEach { field ->
 				val column = field.javaField?.getAnnotation(TableColumn::class.java)
 				column?.let { query += ", " + field.name + " " + column.type }

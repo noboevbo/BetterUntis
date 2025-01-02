@@ -16,7 +16,8 @@ class UnknownObject(val jsonString: String?) {
 	@OptIn(ExperimentalSerializationApi::class)
 	@Serializer(forClass = UnknownObject::class)
 	companion object : KSerializer<UnknownObject> {
-		override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("UnknownObject", PrimitiveKind.STRING)
+		override val descriptor: SerialDescriptor =
+			PrimitiveSerialDescriptor("UnknownObject", PrimitiveKind.STRING)
 
 		@OptIn(ExperimentalSerializationApi::class)
 		override fun serialize(encoder: Encoder, value: UnknownObject) {

@@ -26,7 +26,11 @@ class TimetableCache(val context: WeakReference<Context>) {
 	@OptIn(ExperimentalSerializationApi::class)
 	fun load(): CacheObject? {
 		return try {
-			Cbor.decodeFromByteArray<CacheObject>(targetCacheFile(target)?.readBytes() ?: ByteArray(0))
+			Cbor.decodeFromByteArray<CacheObject>(
+				targetCacheFile(target)?.readBytes() ?: ByteArray(
+					0
+				)
+			)
 		} catch (e: Exception) {
 			null
 		}
@@ -51,16 +55,16 @@ class TimetableCache(val context: WeakReference<Context>) {
 
 	@Serializable
 	data class CacheObject(
-			val timestamp: Long,
-			val items: List<Period>
+		val timestamp: Long,
+		val items: List<Period>
 	)
 
 	private inner class CacheTarget(
-			val startDate: UntisDate,
-			val endDate: UntisDate,
-			val id: Int,
-			val type: String,
-			val userId: Long
+		val startDate: UntisDate,
+		val endDate: UntisDate,
+		val id: Int,
+		val type: String,
+		val userId: Long
 	) {
 		fun getName(): String {
 			return String.format("%d-%s-%d-%s-%s", userId, type, id, startDate, endDate)

@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:title="@string/nav_all_timetables" android:id="@+id/nav_personal_bookmarks_title">
+	<item
+		android:title="@string/nav_all_timetables"
+		android:id="@+id/nav_personal_bookmarks_title">
 		<menu android:id="@+id/nav_personal_bookmarks">
 			<group android:checkableBehavior="single">
 				<item
 					android:id="@+id/nav_show_personal"
 					android:icon="@drawable/all_prefs_personal"
-					android:title="@string/all_personal_timetable"/>
+					android:title="@string/all_personal_timetable" />
 			</group>
 		</menu>
 	</item>
-	<group android:id="@+id/nav_more_timetables" android:checkableBehavior="single">
+	<group
+		android:id="@+id/nav_more_timetables"
+		android:checkableBehavior="single">
 		<item
 			android:id="@+id/nav_show_classes"
 			android:icon="@drawable/all_classes"
-			android:title="@string/all_classes"/>
+			android:title="@string/all_classes" />
 		<item
 			android:id="@+id/nav_show_teachers"
 			android:icon="@drawable/all_teachers"
-			android:title="@string/all_teachers"/>
+			android:title="@string/all_teachers" />
 		<item
 			android:id="@+id/nav_show_rooms"
 			android:icon="@drawable/all_rooms"
-			android:title="@string/all_rooms"/>
+			android:title="@string/all_rooms" />
 	</group>
 	<group>
 		<item

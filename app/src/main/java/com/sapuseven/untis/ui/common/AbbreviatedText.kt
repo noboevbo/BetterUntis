@@ -70,9 +70,11 @@ fun AbbreviatedText(
 @Composable
 @Preview
 fun AbbreviatedTextTest() {
-	Column(modifier = Modifier
-		.fillMaxWidth()
-		.background(Color.White)) {
+	Column(
+		modifier = Modifier
+			.fillMaxWidth()
+			.background(Color.White)
+	) {
 		AbbreviatedText(
 			"This is a very long text",
 			"This is text",

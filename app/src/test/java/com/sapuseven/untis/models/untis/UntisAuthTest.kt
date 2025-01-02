@@ -9,16 +9,21 @@ import org.junit.Test
 class UntisAuthTest {
 	@Test
 	fun untisAuth_serialization() {
-		assertThat(getJSON().encodeToString<UntisAuth>(UntisAuth(
-				user = "user",
-				otp = 123456L,
-				clientTime = 123456L
-		)), `is`("""{"user":"user","otp":123456,"clientTime":123456}"""))
+		assertThat(
+			getJSON().encodeToString<UntisAuth>(
+				UntisAuth(
+					user = "user",
+					otp = 123456L,
+					clientTime = 123456L
+				)
+			), `is`("""{"user":"user","otp":123456,"clientTime":123456}""")
+		)
 	}
 
 	@Test
 	fun untisAuth_deserialization() {
-		val auth = getJSON().decodeFromString<UntisAuth>("""{"user":"user","otp":123456,"clientTime":123456}""")
+		val auth =
+			getJSON().decodeFromString<UntisAuth>("""{"user":"user","otp":123456,"clientTime":123456}""")
 
 		assertThat(auth.user, `is`("user"))
 		assertThat(auth.otp, `is`(123456L))

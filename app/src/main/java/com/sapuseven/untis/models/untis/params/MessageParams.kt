@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class MessageParams(
-		val date: UntisDate,
-		val auth: UntisAuth
+	val date: UntisDate,
+	val auth: UntisAuth
 ) : BaseParams()

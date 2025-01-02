@@ -42,6 +42,12 @@ class NowLineDrawer(private val config: WeekViewConfig) : BaseDrawer {
 		// Draw line
 		val minutesUntilNow = now.hourOfDay * 60 + now.minuteOfHour - config.startTime
 		val lineStartY = startY + minutesUntilNow / 60.0f * config.hourHeight
-		canvas.drawLine(startX, lineStartY, startPixel + drawConfig.widthPerDay, lineStartY, drawConfig.nowLinePaint)
+		canvas.drawLine(
+			startX,
+			lineStartY,
+			startPixel + drawConfig.widthPerDay,
+			lineStartY,
+			drawConfig.nowLinePaint
+		)
 	}
 }

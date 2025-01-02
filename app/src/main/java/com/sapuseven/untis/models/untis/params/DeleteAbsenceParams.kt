@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DeleteAbsenceParams(
-		val absenceId: Int,
-		val auth: UntisAuth
+	val absenceId: Int,
+	val auth: UntisAuth
 ) : BaseParams()

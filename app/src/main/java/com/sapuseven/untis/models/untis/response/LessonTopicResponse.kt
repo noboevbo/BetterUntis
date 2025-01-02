@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LessonTopicResponse(
-		val result: LessonTopicResult? = null
+	val result: LessonTopicResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class LessonTopicResult(
-		val success: Boolean
+	val success: Boolean
 )

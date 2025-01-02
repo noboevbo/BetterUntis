@@ -25,28 +25,40 @@ class UntisAuthenticationTest {
 
 	@Test
 	fun getAuthObject_returnsCorrect() {
-		assertThat(UntisAuthentication.createAuthObject("user", "ABCDEFGHIJKLMNOP"), `is`(UntisAuth(
-				user = "user",
-				otp = 439266,
-				clientTime = TIME_MILLIS
-		)))
+		assertThat(
+			UntisAuthentication.createAuthObject("user", "ABCDEFGHIJKLMNOP"), `is`(
+				UntisAuth(
+					user = "user",
+					otp = 439266,
+					clientTime = TIME_MILLIS
+				)
+			)
+		)
 	}
 
 	@Test
 	fun getAuthObject_nullValueForKey() {
-		assertThat(UntisAuthentication.createAuthObject("user", null), `is`(UntisAuth(
-				user = "user",
-				otp = 0,
-				clientTime = TIME_MILLIS
-		)))
+		assertThat(
+			UntisAuthentication.createAuthObject("user", null), `is`(
+				UntisAuth(
+					user = "user",
+					otp = 0,
+					clientTime = TIME_MILLIS
+				)
+			)
+		)
 	}
 
 	@Test
 	fun getAnonymousAuthObject_returnsCorrect() {
-		assertThat(UntisAuthentication.createAuthObject(), `is`(UntisAuth(
-				user = "#anonymous#",
-				otp = 0,
-				clientTime = TIME_MILLIS
-		)))
+		assertThat(
+			UntisAuthentication.createAuthObject(), `is`(
+				UntisAuth(
+					user = "#anonymous#",
+					otp = 0,
+					clientTime = TIME_MILLIS
+				)
+			)
+		)
 	}
 }

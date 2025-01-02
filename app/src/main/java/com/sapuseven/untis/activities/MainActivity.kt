@@ -574,7 +574,10 @@ fun MainApp(state: NewMainAppState) {
 						state.showFeedback()
 					}
 				) {
-					Icon(painter = painterResource(R.drawable.all_feedback), contentDescription = "Give feedback")
+					Icon(
+						painter = painterResource(R.drawable.all_feedback),
+						contentDescription = "Give feedback"
+					)
 				}
 
 				if (state.isAnonymous) {
@@ -861,7 +864,7 @@ class NewMainAppState @OptIn(ExperimentalMaterial3Api::class) constructor(
 		displayedElement.value = element
 		displayedName.value =
 			displayName ?: element?.let { timetableDatabaseInterface.getLongName(it) }
-					?: defaultDisplayedName
+				?: defaultDisplayedName
 	}
 
 	// WeekView
@@ -882,11 +885,11 @@ class NewMainAppState @OptIn(ExperimentalMaterial3Api::class) constructor(
 				item.periodData.apply {
 					forceIrregular =
 						classes.find { it.id != it.orgId } != null
-								|| teachers.find { it.id != it.orgId } != null
-								|| subjects.find { it.id != it.orgId } != null
-								|| rooms.find { it.id != it.orgId } != null
-								|| preferences.timetableBackgroundIrregular.getValue()
-								&& item.periodData.element.backColor != UNTIS_DEFAULT_COLOR
+							|| teachers.find { it.id != it.orgId } != null
+							|| subjects.find { it.id != it.orgId } != null
+							|| rooms.find { it.id != it.orgId } != null
+							|| preferences.timetableBackgroundIrregular.getValue()
+							&& item.periodData.element.backColor != UNTIS_DEFAULT_COLOR
 				}
 			}
 			item
@@ -1049,7 +1052,7 @@ class NewMainAppState @OptIn(ExperimentalMaterial3Api::class) constructor(
 	): Flow<Pair<Long, List<Event>>> {
 		val dateRange =
 			UntisDate.fromLocalDate(LocalDate(startDate)) to
-					UntisDate.fromLocalDate(LocalDate(endDate))
+				UntisDate.fromLocalDate(LocalDate(endDate))
 
 		return displayedElement.value?.let { element ->
 			loadTimetableFlow(
@@ -1470,7 +1473,7 @@ class MainAppState @OptIn(ExperimentalMaterial3Api::class) constructor(
 	fun displayElement(element: PeriodElement?, name: String? = null) {
 		displayedElement.value = element
 		displayedName.value = name ?: element?.let { timetableDatabaseInterface.getLongName(it) }
-				?: defaultDisplayedName
+			?: defaultDisplayedName
 
 		weekViewEvents.clear()
 		scope.launch {

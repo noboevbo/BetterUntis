@@ -34,13 +34,13 @@ data class Period(
 
 	fun equalsIgnoreTime(second: Period): Boolean {
 		return `is` == second.`is`
-				&& can == second.can
-				&& elements == second.elements
-				&& text == second.text
-				&& foreColor == second.foreColor
-				&& backColor == second.backColor
-				&& innerForeColor == second.innerForeColor
-				&& innerBackColor == second.innerBackColor
-				&& lessonId == second.lessonId
+			&& can == second.can
+			&& elements == second.elements
+			&& text == second.text
+			&& foreColor == second.foreColor
+			&& backColor == second.backColor
+			&& innerForeColor == second.innerForeColor
+			&& innerBackColor == second.innerBackColor
+			&& lessonId == second.lessonId
 	}
 }

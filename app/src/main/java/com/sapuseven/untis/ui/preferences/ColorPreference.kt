@@ -103,12 +103,14 @@ fun ColorPreference(
 	)
 
 	if (showDialog) {
-		val presetColors = remember { materialColors.plus(
-			if (defaultValueLabel == null)
-				Color(dataStore.defaultValue)
-			else
-				Color.Black
-		) }
+		val presetColors = remember {
+			materialColors.plus(
+				if (defaultValueLabel == null)
+					Color(dataStore.defaultValue)
+				else
+					Color.Black
+			)
+		}
 
 		var color by remember { mutableStateOf(Color(value.value)) }
 		var selectedPreset by remember { mutableStateOf(presetColors.indexOf(color)) }

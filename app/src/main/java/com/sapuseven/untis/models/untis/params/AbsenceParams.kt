@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AbsenceParams(
-		val startDate: UntisDate,
-		val endDate: UntisDate,
-		val includeExcused: Boolean,
-		val includeUnExcused: Boolean,
-		val auth: UntisAuth
+	val startDate: UntisDate,
+	val endDate: UntisDate,
+	val includeExcused: Boolean,
+	val includeUnExcused: Boolean,
+	val auth: UntisAuth
 ) : BaseParams()

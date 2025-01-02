@@ -14,12 +14,13 @@ import org.joda.time.LocalTime
 
 @Serializable(UntisTime.Companion::class)
 class UntisTime(
-		val time: String
+	val time: String
 ) {
 	@OptIn(ExperimentalSerializationApi::class)
 	@Serializer(forClass = UntisTime::class)
 	companion object : KSerializer<UntisTime> {
-		override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("UntisTime", PrimitiveKind.STRING)
+		override val descriptor: SerialDescriptor =
+			PrimitiveSerialDescriptor("UntisTime", PrimitiveKind.STRING)
 
 		override fun serialize(encoder: Encoder, obj: UntisTime) {
 			encoder.encodeString(obj.time)

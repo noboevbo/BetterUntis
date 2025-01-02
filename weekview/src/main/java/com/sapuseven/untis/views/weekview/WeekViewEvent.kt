@@ -5,20 +5,21 @@ import org.joda.time.DateTime
 
 @Deprecated("Replaced by WeekViewCompose Event")
 open class WeekViewEvent<T>(
-		var id: Long = 0,
-		var title: String = "",
-		var top: String = "",
-		var bottom: String = "",
-		var startTime: DateTime,
-		var endTime: DateTime,
-		var color: Int = 0,
-		var pastColor: Int = 0,
-		var textColor: Int = 0,
-		var data: T? = null,
-		var hasIndicator: Boolean = false
+	var id: Long = 0,
+	var title: String = "",
+	var top: String = "",
+	var bottom: String = "",
+	var startTime: DateTime,
+	var endTime: DateTime,
+	var color: Int = 0,
+	var pastColor: Int = 0,
+	var textColor: Int = 0,
+	var data: T? = null,
+	var hasIndicator: Boolean = false
 ) : WeekViewDisplayable<T>, Comparable<WeekViewEvent<*>> {
 	companion object {
-		private val DEFAULT_COLOR = Color.parseColor("#9fc6e7") // TODO: Different default color, but this is good for testing
+		private val DEFAULT_COLOR =
+			Color.parseColor("#9fc6e7") // TODO: Different default color, but this is good for testing
 	}
 
 	internal val colorOrDefault: Int
@@ -30,9 +31,11 @@ open class WeekViewEvent<T>(
 	internal val textColorOrDefault: Int
 		get() = if (textColor != 0) textColor else Color.BLACK
 
-	internal fun isSameDay(other: DateTime?) = if (other == null) false else DateUtils.isSameDay(startTime, other)
+	internal fun isSameDay(other: DateTime?) =
+		if (other == null) false else DateUtils.isSameDay(startTime, other)
 
-	internal fun isSameDay(other: WeekViewEvent<*>) = DateUtils.isSameDay(startTime, other.startTime)
+	internal fun isSameDay(other: WeekViewEvent<*>) =
+		DateUtils.isSameDay(startTime, other.startTime)
 
 	internal fun collidesWith(other: WeekViewEvent<*>): Boolean {
 		val thisStart = startTime.millis

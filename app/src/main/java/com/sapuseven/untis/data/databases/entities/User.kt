@@ -129,34 +129,52 @@ interface UserDao {
 	@Insert
 	fun insert(user: User): Long
 
-	@Insert fun insertAbsenceReasons(absenceReasons: List<AbsenceReason>)
-	@Insert fun insertDepartments(departments: List<Department>)
-	@Insert fun insertDuties(duties: List<Duty>)
-	@Insert fun insertEventReasons(eventReasons: List<EventReason>)
-	@Insert fun insertEventReasonGroups(eventReasonGroups: List<EventReasonGroup>)
-	@Insert fun insertExcuseStatuses(excuseStatuses: List<ExcuseStatus>)
-	@Insert fun insertHolidays(holidays: List<Holiday>)
-	@Insert fun insertKlassen(klassen: List<Klasse>)
-	@Insert fun insertRooms(rooms: List<Room>)
-	@Insert fun insertSubjects(subjects: List<Subject>)
-	@Insert fun insertTeachers(teachers: List<Teacher>)
-	@Insert fun insertTeachingMethods(teachingMethods: List<TeachingMethod>)
-	@Insert fun insertSchoolYears(schoolYears: List<SchoolYear>)
+	@Insert
+	fun insertAbsenceReasons(absenceReasons: List<AbsenceReason>)
+	@Insert
+	fun insertDepartments(departments: List<Department>)
+	@Insert
+	fun insertDuties(duties: List<Duty>)
+	@Insert
+	fun insertEventReasons(eventReasons: List<EventReason>)
+	@Insert
+	fun insertEventReasonGroups(eventReasonGroups: List<EventReasonGroup>)
+	@Insert
+	fun insertExcuseStatuses(excuseStatuses: List<ExcuseStatus>)
+	@Insert
+	fun insertHolidays(holidays: List<Holiday>)
+	@Insert
+	fun insertKlassen(klassen: List<Klasse>)
+	@Insert
+	fun insertRooms(rooms: List<Room>)
+	@Insert
+	fun insertSubjects(subjects: List<Subject>)
+	@Insert
+	fun insertTeachers(teachers: List<Teacher>)
+	@Insert
+	fun insertTeachingMethods(teachingMethods: List<TeachingMethod>)
+	@Insert
+	fun insertSchoolYears(schoolYears: List<SchoolYear>)
 
 	@Transaction
 	fun insertUserData(userId: Long, masterData: UntisMasterData) {
-		insertAbsenceReasons((masterData.absenceReasons ?: emptyList()).map { it.copy(userId = userId) })
+		insertAbsenceReasons(
+			(masterData.absenceReasons ?: emptyList()).map { it.copy(userId = userId) })
 		insertDepartments((masterData.departments ?: emptyList()).map { it.copy(userId = userId) })
 		insertDuties((masterData.duties ?: emptyList()).map { it.copy(userId = userId) })
-		insertEventReasons((masterData.eventReasons ?: emptyList()).map { it.copy(userId = userId) })
-		insertEventReasonGroups((masterData.eventReasonGroups ?: emptyList()).map { it.copy(userId = userId) })
-		insertExcuseStatuses((masterData.excuseStatuses ?: emptyList()).map { it.copy(userId = userId) })
+		insertEventReasons(
+			(masterData.eventReasons ?: emptyList()).map { it.copy(userId = userId) })
+		insertEventReasonGroups(
+			(masterData.eventReasonGroups ?: emptyList()).map { it.copy(userId = userId) })
+		insertExcuseStatuses(
+			(masterData.excuseStatuses ?: emptyList()).map { it.copy(userId = userId) })
 		insertHolidays((masterData.holidays ?: emptyList()).map { it.copy(userId = userId) })
 		insertKlassen((masterData.klassen).map { it.copy(userId = userId) })
 		insertRooms((masterData.rooms).map { it.copy(userId = userId) })
 		insertSubjects((masterData.subjects).map { it.copy(userId = userId) })
 		insertTeachers((masterData.teachers).map { it.copy(userId = userId) })
-		insertTeachingMethods((masterData.teachingMethods ?: emptyList()).map { it.copy(userId = userId) })
+		insertTeachingMethods(
+			(masterData.teachingMethods ?: emptyList()).map { it.copy(userId = userId) })
 		insertSchoolYears((masterData.schoolyears ?: emptyList()).map { it.copy(userId = userId) })
 	}
 
@@ -166,19 +184,32 @@ interface UserDao {
 	@Delete
 	fun delete(user: User)
 
-	@Delete fun deleteAbsenceReasons(absenceReasons: List<AbsenceReason>)
-	@Delete fun deleteDepartments(departments: List<Department>)
-	@Delete fun deleteDuties(duties: List<Duty>)
-	@Delete fun deleteEventReasons(eventReasons: List<EventReason>)
-	@Delete fun deleteEventReasonGroups(eventReasonGroups: List<EventReasonGroup>)
-	@Delete fun deleteExcuseStatuses(excuseStatuses: List<ExcuseStatus>)
-	@Delete fun deleteHolidays(holidays: List<Holiday>)
-	@Delete fun deleteKlassen(klassen: List<Klasse>)
-	@Delete fun deleteRooms(rooms: List<Room>)
-	@Delete fun deleteSubjects(subjects: List<Subject>)
-	@Delete fun deleteTeachers(teachers: List<Teacher>)
-	@Delete fun deleteTeachingMethods(teachingMethods: List<TeachingMethod>)
-	@Delete fun deleteSchoolYears(schoolYears: List<SchoolYear>)
+	@Delete
+	fun deleteAbsenceReasons(absenceReasons: List<AbsenceReason>)
+	@Delete
+	fun deleteDepartments(departments: List<Department>)
+	@Delete
+	fun deleteDuties(duties: List<Duty>)
+	@Delete
+	fun deleteEventReasons(eventReasons: List<EventReason>)
+	@Delete
+	fun deleteEventReasonGroups(eventReasonGroups: List<EventReasonGroup>)
+	@Delete
+	fun deleteExcuseStatuses(excuseStatuses: List<ExcuseStatus>)
+	@Delete
+	fun deleteHolidays(holidays: List<Holiday>)
+	@Delete
+	fun deleteKlassen(klassen: List<Klasse>)
+	@Delete
+	fun deleteRooms(rooms: List<Room>)
+	@Delete
+	fun deleteSubjects(subjects: List<Subject>)
+	@Delete
+	fun deleteTeachers(teachers: List<Teacher>)
+	@Delete
+	fun deleteTeachingMethods(teachingMethods: List<TeachingMethod>)
+	@Delete
+	fun deleteSchoolYears(schoolYears: List<SchoolYear>)
 
 	@Transaction
 	fun deleteUserData(userWithData: UserWithData) {

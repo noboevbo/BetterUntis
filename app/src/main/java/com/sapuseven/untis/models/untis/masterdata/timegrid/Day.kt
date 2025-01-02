@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Day(
-		val day: String,
-		val units: List<Unit>
+	val day: String,
+	val units: List<Unit>
 )

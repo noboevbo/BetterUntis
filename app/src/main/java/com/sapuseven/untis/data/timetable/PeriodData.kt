@@ -12,8 +12,8 @@ import kotlinx.serialization.Transient
 
 @Serializable
 class PeriodData(
-		@Transient private var timetableDatabaseInterface: TimetableDatabaseInterface? = null,
-		var element: Period
+	@Transient private var timetableDatabaseInterface: TimetableDatabaseInterface? = null,
+	var element: Period
 ) {
 	val classes = HashSet<PeriodElement>()
 	val teachers = HashSet<PeriodElement>()
@@ -49,29 +49,43 @@ class PeriodData(
 
 	fun setup() = parseElements()
 
-	fun getShort(type: TimetableDatabaseInterface.Type, list: HashSet<PeriodElement> = getListFor(type)) =
-			list.joinToString(ELEMENT_NAME_SEPARATOR) {
-				timetableDatabaseInterface?.getShortName(it.id, type) ?: ELEMENT_NAME_UNKNOWN
-			}
+	fun getShort(
+		type: TimetableDatabaseInterface.Type,
+		list: HashSet<PeriodElement> = getListFor(type)
+	) =
+		list.joinToString(ELEMENT_NAME_SEPARATOR) {
+			timetableDatabaseInterface?.getShortName(it.id, type) ?: ELEMENT_NAME_UNKNOWN
+		}
 
-	fun getLong(type: TimetableDatabaseInterface.Type, list: HashSet<PeriodElement> = getListFor(type)) =
-			list.joinToString(ELEMENT_NAME_SEPARATOR) {
-				timetableDatabaseInterface?.getLongName(it.id, type) ?: ELEMENT_NAME_UNKNOWN
-			}
+	fun getLong(
+		type: TimetableDatabaseInterface.Type,
+		list: HashSet<PeriodElement> = getListFor(type)
+	) =
+		list.joinToString(ELEMENT_NAME_SEPARATOR) {
+			timetableDatabaseInterface?.getLongName(it.id, type) ?: ELEMENT_NAME_UNKNOWN
+		}
 
-	fun getShortSpanned(type: TimetableDatabaseInterface.Type, list: HashSet<PeriodElement> = getListFor(type), includeOrgIds: Boolean = true): SpannableString {
+	fun getShortSpanned(
+		type: TimetableDatabaseInterface.Type,
+		list: HashSet<PeriodElement> = getListFor(type),
+		includeOrgIds: Boolean = true
+	): SpannableString {
 		val builder = SpannableStringBuilder()
 
 		list.forEach {
 			if (builder.isNotBlank())
 				builder.append(ELEMENT_NAME_SEPARATOR)
-			builder.append(timetableDatabaseInterface?.getShortName(it.id, type)
-					?: ELEMENT_NAME_UNKNOWN)
+			builder.append(
+				timetableDatabaseInterface?.getShortName(it.id, type)
+					?: ELEMENT_NAME_UNKNOWN
+			)
 			if (includeOrgIds && it.id != it.orgId && it.orgId != 0) {
 				builder.append(ELEMENT_NAME_SEPARATOR)
-				builder.append(timetableDatabaseInterface?.getShortName(it.orgId, type)
+				builder.append(
+					timetableDatabaseInterface?.getShortName(it.orgId, type)
 						?: ELEMENT_NAME_UNKNOWN,
-						StrikethroughSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+					StrikethroughSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+				)
 			}
 		}
 
@@ -90,49 +104,49 @@ class PeriodData(
 	@Deprecated("Use getShort instead.")
 	fun getShortTitle() = subjects.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getShortName(it.id, TimetableDatabaseInterface.Type.SUBJECT)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getLong instead.")
 	fun getLongTitle() = subjects.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getLongName(it.id, TimetableDatabaseInterface.Type.SUBJECT)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getShort instead.")
 	fun getShortTeachers() = teachers.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getShortName(it.id, TimetableDatabaseInterface.Type.TEACHER)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getLong instead.")
 	fun getLongTeachers() = teachers.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getLongName(it.id, TimetableDatabaseInterface.Type.TEACHER)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getShort instead.")
 	fun getShortRooms() = rooms.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getShortName(it.id, TimetableDatabaseInterface.Type.ROOM)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getLong instead.")
 	fun getLongRooms() = rooms.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getLongName(it.id, TimetableDatabaseInterface.Type.ROOM)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getShort instead.")
 	fun getShortClasses() = classes.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getShortName(it.id, TimetableDatabaseInterface.Type.CLASS)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	@Deprecated("Use getLong instead.")
 	fun getLongClasses() = classes.joinToString(ELEMENT_NAME_SEPARATOR) {
 		timetableDatabaseInterface?.getLongName(it.id, TimetableDatabaseInterface.Type.CLASS)
-				?: ELEMENT_NAME_UNKNOWN
+			?: ELEMENT_NAME_UNKNOWN
 	}
 
 	fun isCancelled(): Boolean = element.`is`.contains(Period.CODE_CANCELLED)

@@ -62,5 +62,6 @@ internal fun androidx.compose.ui.text.style.TextDecoration.toGlanceTextDecoratio
 				TextDecoration.LineThrough
 			)
 		)
+
 		else -> TextDecoration.None
 	}

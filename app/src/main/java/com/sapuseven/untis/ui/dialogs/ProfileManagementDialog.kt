@@ -51,7 +51,8 @@ fun ProfileManagementDialog(
 
 	val loginLauncher =
 		rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-			users = state.listUsers() // TODO: Doesn't work, user database is probably read before it's updated
+			users =
+				state.listUsers() // TODO: Doesn't work, user database is probably read before it's updated
 		}
 
 	var deleteDialog by rememberSaveable { mutableStateOf<User?>(null) }

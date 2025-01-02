@@ -20,34 +20,34 @@ class TimegridItem(
 
 		title = periodData.getShort(TimetableDatabaseInterface.Type.SUBJECT)
 		top = (
-				if (contextType == TimetableDatabaseInterface.Type.TEACHER.name)
-					periodData.getShortSpanned(
-						TimetableDatabaseInterface.Type.CLASS,
-						includeOrgIds = includeOrgIds
-					)
-				else
-					periodData.getShortSpanned(
-						TimetableDatabaseInterface.Type.TEACHER,
-						includeOrgIds = includeOrgIds
-					)
-				).toString()
+			if (contextType == TimetableDatabaseInterface.Type.TEACHER.name)
+				periodData.getShortSpanned(
+					TimetableDatabaseInterface.Type.CLASS,
+					includeOrgIds = includeOrgIds
+				)
+			else
+				periodData.getShortSpanned(
+					TimetableDatabaseInterface.Type.TEACHER,
+					includeOrgIds = includeOrgIds
+				)
+			).toString()
 		bottom = (
-				if (contextType == TimetableDatabaseInterface.Type.ROOM.name)
-					periodData.getShortSpanned(
-						TimetableDatabaseInterface.Type.CLASS,
-						includeOrgIds = includeOrgIds
-					)
-				else
-					periodData.getShortSpanned(
-						TimetableDatabaseInterface.Type.ROOM,
-						includeOrgIds = includeOrgIds
-					)
-				).toString()
+			if (contextType == TimetableDatabaseInterface.Type.ROOM.name)
+				periodData.getShortSpanned(
+					TimetableDatabaseInterface.Type.CLASS,
+					includeOrgIds = includeOrgIds
+				)
+			else
+				periodData.getShortSpanned(
+					TimetableDatabaseInterface.Type.ROOM,
+					includeOrgIds = includeOrgIds
+				)
+			).toString()
 
 		hasIndicator = !periodData.element.homeWorks.isNullOrEmpty()
-				|| periodData.element.text.lesson.isNotEmpty()
-				|| periodData.element.text.substitution.isNotEmpty()
-				|| periodData.element.text.info.isNotEmpty()
+			|| periodData.element.text.lesson.isNotEmpty()
+			|| periodData.element.text.substitution.isNotEmpty()
+			|| periodData.element.text.info.isNotEmpty()
 	}
 
 	override fun toWeekViewEvent(): WeekViewEvent<TimegridItem> {

@@ -78,11 +78,11 @@ fun DebugDesclaimerAction() {
 	) {
 		Text(
 			"You are running a debug build of the app.\n\n" +
-					"This means that the app is not optimized and you will see some additional settings and functions.\n" +
-					"It is only recommended to use this variant when developing or gathering information about specific issues.\n" +
-					"For normal daily use, you should switch to a stable release build of the app.\n\n" +
-					"Please remember that diagnostic data may include personal details, " +
-					"so it is your responsibility to check and obfuscate any gathered data before uploading."
+				"This means that the app is not optimized and you will see some additional settings and functions.\n" +
+				"It is only recommended to use this variant when developing or gathering information about specific issues.\n" +
+				"For normal daily use, you should switch to a stable release build of the app.\n\n" +
+				"Please remember that diagnostic data may include personal details, " +
+				"so it is your responsibility to check and obfuscate any gathered data before uploading."
 		)
 	}
 }

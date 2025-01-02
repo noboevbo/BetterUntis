@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource
 
 internal class WeekViewDateUtilsTest {
 	@Test
-    fun pageIndexForDate_weekdays() {
+	fun pageIndexForDate_weekdays() {
 		val nowDate = LocalDate.now()
 
 		assertEquals(0, pageIndexForDate(nowDate)) // Monday
@@ -20,29 +20,32 @@ internal class WeekViewDateUtilsTest {
 		assertEquals(2, pageIndexForDate(nowDate.plusWeeks(2))) // Monday in 2 weeks
 		assertEquals(-1, pageIndexForDate(nowDate.minusWeeks(1))) // last Monday
 		assertEquals(-2, pageIndexForDate(nowDate.minusWeeks(2))) // Monday 2 weeks ago
-    }
+	}
 
 	@Test
-    fun pageIndexForDate_weekends() {
+	fun pageIndexForDate_weekends() {
 		val nowDate = LocalDate.now()
 
 		assertEquals(0, pageIndexForDate(nowDate.minusDays(1))) // last Sunday
 		assertEquals(1, pageIndexForDate(nowDate.plusDays(5))) // Saturday
 
-		assertEquals(-1, pageIndexForDate(nowDate.minusDays(1), defaultToNext = false)) // last Sunday
+		assertEquals(
+			-1,
+			pageIndexForDate(nowDate.minusDays(1), defaultToNext = false)
+		) // last Sunday
 		assertEquals(0, pageIndexForDate(nowDate.plusDays(5), defaultToNext = false)) // Saturday
-    }
+	}
 
 	@Test
-    fun pageIndexForDate_weekLength_weekends() {
+	fun pageIndexForDate_weekLength_weekends() {
 		val nowDate = LocalDate.now()
 
 		assertEquals(0, pageIndexForDate(nowDate.minusDays(3), weekLength = 3)) // last Friday
 		assertEquals(1, pageIndexForDate(nowDate.plusDays(3), weekLength = 3)) // Thursday
-    }
+	}
 
-    @Test
-    fun startDateForPageIndex_defaults() {
+	@Test
+	fun startDateForPageIndex_defaults() {
 		assertEquals(LocalDate(2023, 6, 19), startDateForPageIndex(0))
 		assertEquals(LocalDate(2023, 6, 26), startDateForPageIndex(1))
 		assertEquals(LocalDate(2023, 6, 12), startDateForPageIndex(-1))

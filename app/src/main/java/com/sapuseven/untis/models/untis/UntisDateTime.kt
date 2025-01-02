@@ -15,11 +15,12 @@ import org.joda.time.LocalDateTime
 
 @Serializable(UntisDateTime.Companion::class)
 class UntisDateTime(
-		val dateTime: String
+	val dateTime: String
 ) {
 	@OptIn(ExperimentalSerializationApi::class)
 	companion object : KSerializer<UntisDateTime> {
-		override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("UntisDateTime", PrimitiveKind.STRING)
+		override val descriptor: SerialDescriptor =
+			PrimitiveSerialDescriptor("UntisDateTime", PrimitiveKind.STRING)
 
 		override fun serialize(encoder: Encoder, value: UntisDateTime) {
 			encoder.encodeString(value.dateTime)
@@ -37,7 +38,8 @@ class UntisDateTime(
 	}
 
 	fun toLocalDateTime(): LocalDateTime {
-		return DateTimeUtils.isoDateTimeNoSeconds().withZone(DateTimeZone.getDefault()).parseLocalDateTime(dateTime)
+		return DateTimeUtils.isoDateTimeNoSeconds().withZone(DateTimeZone.getDefault())
+			.parseLocalDateTime(dateTime)
 	}
 
 	fun toDateTime(): DateTime {

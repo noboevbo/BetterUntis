@@ -20,23 +20,23 @@ object DateTimeUtils {
 
 	object Constants {
 		internal val sdt = DateTimeFormatterBuilder()
-				.appendHourOfDay(1)
-				.appendLiteral(':')
-				.appendMinuteOfHour(2)
-				.toFormatter()
+			.appendHourOfDay(1)
+			.appendLiteral(':')
+			.appendMinuteOfHour(2)
+			.toFormatter()
 
 		internal val ttxx = DateTimeFormatterBuilder()
-				.appendLiteral('T')
-				.append(ISODateTimeFormat.hourMinute())
-				.toFormatter()
+			.appendLiteral('T')
+			.append(ISODateTimeFormat.hourMinute())
+			.toFormatter()
 
 		internal val idtxx = DateTimeFormatterBuilder()
-				.append(date())
-				.appendLiteral('T')
-				.appendHourOfDay(2)
-				.appendLiteral(':')
-				.appendMinuteOfHour(2)
-				.appendTimeZoneOffset("Z", true, 2, 4)
-				.toFormatter()
+			.append(date())
+			.appendLiteral('T')
+			.appendHourOfDay(2)
+			.appendLiteral(':')
+			.appendMinuteOfHour(2)
+			.appendTimeZoneOffset("Z", true, 2, 4)
+			.toFormatter()
 	}
 }

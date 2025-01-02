@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
 	<style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
 		<item name="android:windowBackground">?attr/colorSurface</item>
 	</style>
@@ -21,7 +22,7 @@
 	<style name="MaterialDialog.MaterialComponents.Title.Text" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
 		<item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Title</item>
 	</style>
-	
+
 	<style name="TextAppearance.MaterialComponents.Title" parent="">
 		<item name="android:textSize">20sp</item>
 		<item name="android:textStyle">bold</item>

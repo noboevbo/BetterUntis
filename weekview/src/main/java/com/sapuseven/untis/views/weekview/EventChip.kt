@@ -33,7 +33,11 @@ class EventChip<T>
  * @param originalEvent The original event that was passed by the user.
  * @param rect          The rectangle.
  */
-internal constructor(var event: WeekViewEvent<T>, var originalEvent: WeekViewEvent<T>, var rect: SplitRect?) {
+internal constructor(
+	var event: WeekViewEvent<T>,
+	var originalEvent: WeekViewEvent<T>,
+	var rect: SplitRect?
+) {
 	internal var left: Float = 0.0f
 	internal var width: Float = 0.0f
 	internal var top: Float = 0.0f
@@ -64,8 +68,10 @@ internal constructor(var event: WeekViewEvent<T>, var originalEvent: WeekViewEve
 	}
 
 	private fun drawTitle(config: WeekViewConfig, canvas: Canvas) {
-		val availableHeight = (rect!!.bottom - rect!!.top - (config.eventPadding * 2).toFloat()).toInt()
-		val availableWidth = (rect!!.right - rect!!.left - (config.eventPadding * 2).toFloat()).toInt()
+		val availableHeight =
+			(rect!!.bottom - rect!!.top - (config.eventPadding * 2).toFloat()).toInt()
+		val availableWidth =
+			(rect!!.right - rect!!.left - (config.eventPadding * 2).toFloat()).toInt()
 
 		if (availableHeight < 0 || availableWidth < 0) return
 
@@ -74,23 +80,77 @@ internal constructor(var event: WeekViewEvent<T>, var originalEvent: WeekViewEve
 		val bottomPaint = config.drawConfig.eventBottomPaint.apply { color = textColor }
 		val indicatorRadius = topPaint.textSize / 4f
 
-		val eventTop = restoreSpanned(event.top, TextUtils.ellipsize(event.top, topPaint, availableWidth.toFloat(), TextUtils.TruncateAt.END))
-		val eventTitle = restoreSpanned(event.title, TextUtils.ellipsize(event.title, titlePaint, availableWidth.toFloat(), TextUtils.TruncateAt.END))
-		val eventBottom = restoreSpanned(event.bottom, TextUtils.ellipsize(event.bottom, bottomPaint, availableWidth.toFloat(), TextUtils.TruncateAt.END))
+		val eventTop = restoreSpanned(
+			event.top,
+			TextUtils.ellipsize(
+				event.top,
+				topPaint,
+				availableWidth.toFloat(),
+				TextUtils.TruncateAt.END
+			)
+		)
+		val eventTitle = restoreSpanned(
+			event.title,
+			TextUtils.ellipsize(
+				event.title,
+				titlePaint,
+				availableWidth.toFloat(),
+				TextUtils.TruncateAt.END
+			)
+		)
+		val eventBottom = restoreSpanned(
+			event.bottom,
+			TextUtils.ellipsize(
+				event.bottom,
+				bottomPaint,
+				availableWidth.toFloat(),
+				TextUtils.TruncateAt.END
+			)
+		)
 
 		canvas.save()
 		canvas.translate(rect!!.left + config.eventPadding, rect!!.top + config.eventPadding)
 
 		if (config.eventSecondaryTextCentered) {
-			canvas.drawSpannableString(eventTop, availableWidth / 2.0f, -(topPaint.ascent() + topPaint.descent()), topPaint)
-			canvas.drawSpannableString(eventBottom, availableWidth / 2.0f, availableHeight.toFloat(), bottomPaint)
+			canvas.drawSpannableString(
+				eventTop,
+				availableWidth / 2.0f,
+				-(topPaint.ascent() + topPaint.descent()),
+				topPaint
+			)
+			canvas.drawSpannableString(
+				eventBottom,
+				availableWidth / 2.0f,
+				availableHeight.toFloat(),
+				bottomPaint
+			)
 		} else {
-			canvas.drawSpannableString(eventTop, 0f, -(topPaint.ascent() + topPaint.descent()), topPaint)
-			canvas.drawSpannableString(eventBottom, availableWidth.toFloat(), availableHeight.toFloat(), bottomPaint)
+			canvas.drawSpannableString(
+				eventTop,
+				0f,
+				-(topPaint.ascent() + topPaint.descent()),
+				topPaint
+			)
+			canvas.drawSpannableString(
+				eventBottom,
+				availableWidth.toFloat(),
+				availableHeight.toFloat(),
+				bottomPaint
+			)
 		}
 
-		if (event.hasIndicator) canvas.drawCircle(availableWidth - indicatorRadius, -(topPaint.ascent() + topPaint.descent()) - indicatorRadius * 2, indicatorRadius, topPaint)
-		canvas.drawText(eventTitle.toString(), availableWidth / 2.0f, availableHeight / 2.0f - (titlePaint.descent() + titlePaint.ascent()) / 2, titlePaint)
+		if (event.hasIndicator) canvas.drawCircle(
+			availableWidth - indicatorRadius,
+			-(topPaint.ascent() + topPaint.descent()) - indicatorRadius * 2,
+			indicatorRadius,
+			topPaint
+		)
+		canvas.drawText(
+			eventTitle.toString(),
+			availableWidth / 2.0f,
+			availableHeight / 2.0f - (titlePaint.descent() + titlePaint.ascent()) / 2,
+			titlePaint
+		)
 		canvas.restore()
 	}
 
@@ -102,9 +162,15 @@ internal constructor(var event: WeekViewEvent<T>, var originalEvent: WeekViewEve
 		var i = 0
 		while (i < target.length) {
 			next = original.nextSpanTransition(i, target.length, CharacterStyle::class.java)
-			val spans: Array<StrikethroughSpan> = original.getSpans(i, next, StrikethroughSpan::class.java)
+			val spans: Array<StrikethroughSpan> =
+				original.getSpans(i, next, StrikethroughSpan::class.java)
 			if (spans.isNotEmpty())
-				targetSpannable.setSpan(StrikethroughSpan(), i, next, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+				targetSpannable.setSpan(
+					StrikethroughSpan(),
+					i,
+					next,
+					Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+				)
 			i = next
 		}
 		return targetSpannable
@@ -138,14 +204,28 @@ fun Canvas.drawSpannableString(text: CharSequence, x: Float, y: Float, paint: Pa
 
 	var i = 0
 	while (i < text.length) {
-		next = if (text is SpannableString) text.nextSpanTransition(i, text.length, CharacterStyle::class.java) else text.length
+		next = if (text is SpannableString) text.nextSpanTransition(
+			i,
+			text.length,
+			CharacterStyle::class.java
+		) else text.length
 
 		xEnd = xStart + paint.measureText(text, i, next)
 
-		val spans: Array<StrikethroughSpan> = if (text is SpannableString) text.getSpans(i, next, StrikethroughSpan::class.java) else emptyArray()
+		val spans: Array<StrikethroughSpan> = if (text is SpannableString) text.getSpans(
+			i,
+			next,
+			StrikethroughSpan::class.java
+		) else emptyArray()
 		if (spans.isNotEmpty()) {
 			drawText(text, i, next, xStart, y, paint)
-			drawLine(xStart, y + (paint.ascent() + paint.descent()) / 2, xEnd, y + (paint.ascent() + paint.descent()) / 2, paint)
+			drawLine(
+				xStart,
+				y + (paint.ascent() + paint.descent()) / 2,
+				xEnd,
+				y + (paint.ascent() + paint.descent()) / 2,
+				paint
+			)
 		} else {
 			drawText(text, i, next, xStart, y, paint)
 		}

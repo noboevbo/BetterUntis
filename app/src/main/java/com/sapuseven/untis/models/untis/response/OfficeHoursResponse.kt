@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class OfficeHoursResponse(
-		val result: OfficeHoursResult? = null
+	val result: OfficeHoursResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class OfficeHoursResult(
-		val officeHours: List<UntisOfficeHour>
+	val officeHours: List<UntisOfficeHour>
 )

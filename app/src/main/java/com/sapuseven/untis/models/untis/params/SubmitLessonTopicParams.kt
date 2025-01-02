@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SubmitLessonTopicParams(
-		val lessonTopic: String,
-		val ttId: Int,
-		val auth: UntisAuth
+	val lessonTopic: String,
+	val ttId: Int,
+	val auth: UntisAuth
 ) : BaseParams()

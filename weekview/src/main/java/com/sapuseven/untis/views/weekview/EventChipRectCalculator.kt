@@ -20,12 +20,16 @@ class EventChipRectCalculator internal constructor(private val config: WeekViewC
 		val widthPerDay = config.drawConfig.widthPerDay - config.columnGap
 
 		// Calculate top
-		val verticalDistanceFromTop = config.hourHeight.toFloat() * config.hoursPerDay() * eventChip.top / config.minutesPerDay()
-		val top = verticalDistanceFromTop + verticalOrigin + config.drawConfig.headerHeight + eventMargin
+		val verticalDistanceFromTop =
+			config.hourHeight.toFloat() * config.hoursPerDay() * eventChip.top / config.minutesPerDay()
+		val top =
+			verticalDistanceFromTop + verticalOrigin + config.drawConfig.headerHeight + eventMargin
 
 		// Calculate bottom
-		val verticalDistanceFromBottom = config.hourHeight.toFloat() * config.hoursPerDay() * eventChip.bottom / config.minutesPerDay()
-		val bottom = verticalDistanceFromBottom + verticalOrigin + config.drawConfig.headerHeight - eventMargin
+		val verticalDistanceFromBottom =
+			config.hourHeight.toFloat() * config.hoursPerDay() * eventChip.bottom / config.minutesPerDay()
+		val bottom =
+			verticalDistanceFromBottom + verticalOrigin + config.drawConfig.headerHeight - eventMargin
 
 		val columns = 1 / eventChip.width // Determine the number of columns
 

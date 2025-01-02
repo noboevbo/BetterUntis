@@ -6,9 +6,9 @@ import java.util.Calendar
 import java.util.Locale
 
 fun Weekday.toLocalizedString(): String =
-		SimpleDateFormat("EEEE", Locale.getDefault()).format(Calendar.getInstance().apply {
-			set(Calendar.DAY_OF_WEEK, toCalendar())
-		}.time)
+	SimpleDateFormat("EEEE", Locale.getDefault()).format(Calendar.getInstance().apply {
+		set(Calendar.DAY_OF_WEEK, toCalendar())
+	}.time)
 
 fun Weekday.toCalendar(): Int = when (this) {
 	Weekday.SUNDAY -> Calendar.SUNDAY

@@ -133,14 +133,17 @@ private class RangeSelectionMode(private val locale: Locale) : SelectionMode {
 				// We had no previous selection so just return the day pressed as the selection.
 				SelectionState.withSingleDay(dayPressed)
 			}
+
 			ordinalOfFirstDayInPreviousRange == ordinalOfLastDayInPreviousRange && ordinalOfFirstDayInPreviousRange == ordinalOfSelectedDay -> {
 				// User pressed the only day in the range selection. Return an empty selection.
 				SelectionState()
 			}
+
 			ordinalOfSelectedDay == ordinalOfFirstDayInPreviousRange || ordinalOfSelectedDay == ordinalOfLastDayInPreviousRange -> {
 				// User pressed the first or last item in range. Just deselect that item.
 				lastSelectionState.withDayDeselected(dayPressed)
 			}
+
 			ordinalOfSelectedDay < ordinalOfFirstDayInPreviousRange -> {
 				// User pressed a day on the left of the previous date range. Grow the starting point of the range to that.
 				SelectionState(
@@ -150,6 +153,7 @@ private class RangeSelectionMode(private val locale: Locale) : SelectionMode {
 					)
 				)
 			}
+
 			else -> {
 				// User pressed a day on the right of the start of the date range. Update the ending point to that position.
 				SelectionState(

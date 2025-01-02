@@ -21,10 +21,10 @@ class TopLeftCornerDrawer(private val config: WeekViewConfig) : BaseDrawer {
 			val vDiff = destRect.height() - imageSize
 
 			drawable.bounds = Rect(
-					hDiff / 2 + config.topLeftCornerPadding,
-					vDiff / 2 + config.topLeftCornerPadding,
-					hDiff / 2 + imageSize - config.topLeftCornerPadding,
-					vDiff / 2 + imageSize - config.topLeftCornerPadding
+				hDiff / 2 + config.topLeftCornerPadding,
+				vDiff / 2 + config.topLeftCornerPadding,
+				hDiff / 2 + imageSize - config.topLeftCornerPadding,
+				vDiff / 2 + imageSize - config.topLeftCornerPadding
 			)
 			drawable.setTint(config.topLeftCornerTint)
 

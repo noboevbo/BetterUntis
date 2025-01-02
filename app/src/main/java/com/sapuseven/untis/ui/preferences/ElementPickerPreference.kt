@@ -57,10 +57,16 @@ fun ElementPickerPreference(
 				showDialog = false
 			},
 			onSelect = { element ->
-				scope.launch { dataStore.saveValue(element?.let { encodeStoredTimetableValue(it) } ?: "") }
+				scope.launch {
+					dataStore.saveValue(element?.let { encodeStoredTimetableValue(it) } ?: "")
+				}
 				showDialog = false
 			},
-			initialType = decodeStoredTimetableValue(value.value)?.let { TimetableDatabaseInterface.Type.valueOf(it.type) }
+			initialType = decodeStoredTimetableValue(value.value)?.let {
+				TimetableDatabaseInterface.Type.valueOf(
+					it.type
+				)
+			}
 		)
 }
 

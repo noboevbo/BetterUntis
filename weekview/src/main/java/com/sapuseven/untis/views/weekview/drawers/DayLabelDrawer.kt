@@ -38,12 +38,14 @@ class DayLabelDrawer(private val config: WeekViewConfig) : BaseDrawer {
 		val x = startPixel + drawConfig.widthPerDay / 2
 		var y = drawConfig.headerTextHeight + config.headerRowPadding
 
-		val textPaint = if (isSameDay) drawConfig.todayHeaderTextPaint else drawConfig.headerTextPaint
+		val textPaint =
+			if (isSameDay) drawConfig.todayHeaderTextPaint else drawConfig.headerTextPaint
 		canvas.drawText(dayLabel, x, y, textPaint)
 
 		y += config.headerRowTextSpacing + drawConfig.headerSecondaryTextHeight
 
-		val secondaryTextPaint = if (isSameDay) drawConfig.todayHeaderSecondaryTextPaint else drawConfig.headerSecondaryTextPaint
+		val secondaryTextPaint =
+			if (isSameDay) drawConfig.todayHeaderSecondaryTextPaint else drawConfig.headerSecondaryTextPaint
 		canvas.drawText(secondaryDayLabel, x, y, secondaryTextPaint)
 	}
 }

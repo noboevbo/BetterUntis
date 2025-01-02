@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class OfficeHoursParams(
-		val klasseId: Int,
-		val startDate: UntisDate,
-		val auth: UntisAuth
+	val klasseId: Int,
+	val startDate: UntisDate,
+	val auth: UntisAuth
 ) : BaseParams()

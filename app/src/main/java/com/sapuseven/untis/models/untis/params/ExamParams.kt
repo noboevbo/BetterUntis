@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ExamParams(
-		val id: Int,
-		val type: String,
-		val startDate: UntisDate,
-		val endDate: UntisDate,
-		val auth: UntisAuth
+	val id: Int,
+	val type: String,
+	val startDate: UntisDate,
+	val endDate: UntisDate,
+	val auth: UntisAuth
 ) : BaseParams()

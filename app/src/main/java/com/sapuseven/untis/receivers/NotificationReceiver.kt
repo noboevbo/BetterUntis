@@ -147,11 +147,13 @@ class NotificationReceiver : BroadcastReceiver() {
 					intent.getStringExtra(EXTRA_STRING_NEXT_SUBJECT)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_SUBJECT)
+
 				"long" -> context?.getString(
 					R.string.notifications_text_message_subjects,
 					intent.getStringExtra(EXTRA_STRING_NEXT_SUBJECT_LONG)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_SUBJECT_LONG)
+
 				else -> null
 			},
 		if (intent.getStringExtra(EXTRA_STRING_NEXT_ROOM)?.isBlank() != false) null else
@@ -161,11 +163,13 @@ class NotificationReceiver : BroadcastReceiver() {
 					intent.getStringExtra(EXTRA_STRING_NEXT_ROOM)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_ROOM)
+
 				"long" -> context?.getString(
 					R.string.notifications_text_message_rooms,
 					intent.getStringExtra(EXTRA_STRING_NEXT_ROOM_LONG)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_ROOM_LONG)
+
 				else -> null
 			},
 		if (intent.getStringExtra(EXTRA_STRING_NEXT_TEACHER)?.isBlank() != false) null else
@@ -175,11 +179,13 @@ class NotificationReceiver : BroadcastReceiver() {
 					intent.getStringExtra(EXTRA_STRING_NEXT_TEACHER)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_TEACHER)
+
 				"long" -> context?.getString(
 					R.string.notifications_text_message_teachers,
 					intent.getStringExtra(EXTRA_STRING_NEXT_TEACHER_LONG)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_TEACHER_LONG)
+
 				else -> null
 			},
 		if (intent.getStringExtra(EXTRA_STRING_NEXT_CLASS)?.isBlank() != false) null else
@@ -189,11 +195,13 @@ class NotificationReceiver : BroadcastReceiver() {
 					intent.getStringExtra(EXTRA_STRING_NEXT_CLASS)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_CLASS)
+
 				"long" -> context?.getString(
 					R.string.notifications_text_message_classes,
 					intent.getStringExtra(EXTRA_STRING_NEXT_CLASS_LONG)
 				)
 					?: intent.getStringExtra(EXTRA_STRING_NEXT_CLASS_LONG)
+
 				else -> null
 			}
 	).joinToString(separator)

@@ -9,23 +9,23 @@ import org.joda.time.LocalTime
 
 @Serializable
 data class TimeGrid(
-		val days: List<Day>
+	val days: List<Day>
 ) {
 	companion object {
 		fun generateDefault(): TimeGrid {
 			val unitsForDay = (6..22).map { hourIndex -> // Range of hours to include
 				Unit(
-						hourIndex.toString(),
-						UntisTime.fromLocalTime(LocalTime().withHourOfDay(hourIndex)),
-						UntisTime.fromLocalTime(LocalTime().withHourOfDay(if (hourIndex < 23) hourIndex + 1 else 0))
+					hourIndex.toString(),
+					UntisTime.fromLocalTime(LocalTime().withHourOfDay(hourIndex)),
+					UntisTime.fromLocalTime(LocalTime().withHourOfDay(if (hourIndex < 23) hourIndex + 1 else 0))
 				)
 			}
 
 			return TimeGrid(
-					// Range of week days to include (0 = Sunday, 1 = Monday, ...)
-					(1..5).map {
-						Day(LocalDateTime().withDayOfWeek(it).toString("E"), unitsForDay)
-					})
+				// Range of week days to include (0 = Sunday, 1 = Monday, ...)
+				(1..5).map {
+					Day(LocalDateTime().withDayOfWeek(it).toString("E"), unitsForDay)
+				})
 		}
 	}
 

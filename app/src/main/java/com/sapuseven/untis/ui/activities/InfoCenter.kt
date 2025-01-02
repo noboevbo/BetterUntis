@@ -90,7 +90,10 @@ fun InfoCenter(state: InfoCenterState) {
 								state.showAbsenceFilter.value = true
 							}
 						) {
-							Icon(painter = painterResource(id = R.drawable.all_filter), contentDescription = null)
+							Icon(
+								painter = painterResource(id = R.drawable.all_filter),
+								contentDescription = null
+							)
 						}
 					}
 				}
@@ -144,7 +147,10 @@ fun InfoCenter(state: InfoCenterState) {
 					ID_MESSAGES -> MessageList(state.messageList, state.messagesLoading.value)
 					ID_EVENTS -> EventList(state.eventList, state.eventsLoading.value)
 					ID_ABSENCES -> AbsenceList(state.absenceList, state.absencesLoading.value)
-					ID_OFFICEHOURS -> OfficeHourList(state.officeHourList, state.officeHoursLoading.value)
+					ID_OFFICEHOURS -> OfficeHourList(
+						state.officeHourList,
+						state.officeHoursLoading.value
+					)
 				}
 			}
 
@@ -523,7 +529,7 @@ private fun AbsenceFilterDialog(
 			)
 		}
 	) { padding ->
-		Box(modifier = Modifier.padding(padding)){
+		Box(modifier = Modifier.padding(padding)) {
 			VerticalScrollColumn {
 				val sortReversed by preferences.infocenterAbsencesSortReverse.getState()
 				SwitchPreference(

@@ -87,7 +87,14 @@ fun TimePickerDialog(
 					}
 
 					TextButton(
-						onClick = { onTimeSelected(LocalTime(timePickerState.hour, timePickerState.minute)) }
+						onClick = {
+							onTimeSelected(
+								LocalTime(
+									timePickerState.hour,
+									timePickerState.minute
+								)
+							)
+						}
 					) {
 						Text(text = stringResource(id = R.string.all_ok))
 					}

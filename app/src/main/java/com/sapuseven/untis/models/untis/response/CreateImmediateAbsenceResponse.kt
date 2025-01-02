@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CreateImmediateAbsenceResponse(
-		val result: CreateImmediateAbsenceResult? = null
+	val result: CreateImmediateAbsenceResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class CreateImmediateAbsenceResult(
-		val absences: List<UntisAbsence>
+	val absences: List<UntisAbsence>
 )

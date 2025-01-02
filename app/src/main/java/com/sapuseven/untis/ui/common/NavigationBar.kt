@@ -22,7 +22,11 @@ fun NavigationBarInset(
 	content: @Composable RowScope.() -> Unit
 ) {
 	Box(
-		modifier = Modifier.background(MaterialTheme.colorScheme.surfaceColorAtElevation(tonalElevation))
+		modifier = Modifier.background(
+			MaterialTheme.colorScheme.surfaceColorAtElevation(
+				tonalElevation
+			)
+		)
 	) {
 		androidx.compose.material3.NavigationBar(
 			modifier = modifier.bottomInsets(),

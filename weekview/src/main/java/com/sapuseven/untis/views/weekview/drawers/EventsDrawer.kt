@@ -14,7 +14,11 @@ import org.joda.time.DateTime
 class EventsDrawer<T>(private val config: WeekViewConfig) {
 	private val rectCalculator: EventChipRectCalculator = EventChipRectCalculator(config)
 
-	internal fun drawEvents(eventChips: List<EventChip<T>>, drawingContext: DrawingContext, canvas: Canvas) {
+	internal fun drawEvents(
+		eventChips: List<EventChip<T>>,
+		drawingContext: DrawingContext,
+		canvas: Canvas
+	) {
 		var startPixel = drawingContext.startPixel
 		val now = DateTime.now().millis
 
@@ -23,22 +27,35 @@ class EventsDrawer<T>(private val config: WeekViewConfig) {
 			if (config.isSingleDay)
 				startPixel += config.eventMarginHorizontal
 
-			if (drawEventsForDate(eventChips, day, now, startPixel, canvas)) freeDays.add(day to startPixel)
+			if (drawEventsForDate(
+					eventChips,
+					day,
+					now,
+					startPixel,
+					canvas
+				)
+			) freeDays.add(day to startPixel)
 
 			startPixel += config.totalDayWidth
 		}
 		drawingContext.freeDays = freeDays
 	}
 
-	private fun drawEventsForDate(eventChips: List<EventChip<T>>, date: DateTime, nowMillis: Long, startFromPixel: Float, canvas: Canvas): Boolean {
+	private fun drawEventsForDate(
+		eventChips: List<EventChip<T>>,
+		date: DateTime,
+		nowMillis: Long,
+		startFromPixel: Float,
+		canvas: Canvas
+	): Boolean {
 		var freeDays = true
 		eventChips.forEach { eventChip ->
 			val event = eventChip.event
 			if (!event.isSameDay(date)) return@forEach else freeDays = false
 
 			val chipRect = SplitRect(
-					rectCalculator.calculateEventRect(eventChip, startFromPixel),
-					calculateDivision(event, nowMillis)
+				rectCalculator.calculateEventRect(eventChip, startFromPixel),
+				calculateDivision(event, nowMillis)
 			)
 			if (isValidEventRect(chipRect)) {
 				eventChip.rect = chipRect
@@ -63,9 +80,9 @@ class EventsDrawer<T>(private val config: WeekViewConfig) {
 
 	private fun isValidEventRect(rect: RectF): Boolean {
 		return (rect.left < rect.right
-				&& rect.left < WeekView.viewWidth
-				&& rect.top < WeekView.viewHeight
-				&& rect.right > config.drawConfig.timeColumnWidth
-				&& rect.bottom > config.drawConfig.headerHeight)
+			&& rect.left < WeekView.viewWidth
+			&& rect.top < WeekView.viewHeight
+			&& rect.right > config.drawConfig.timeColumnWidth
+			&& rect.bottom > config.drawConfig.headerHeight)
 	}
 }

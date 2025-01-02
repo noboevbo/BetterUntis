@@ -13,7 +13,10 @@ import androidx.compose.ui.Modifier
 @Composable
 fun insetsPaddingValues() = WindowInsets.navigationBars.add(WindowInsets.ime).asPaddingValues()
 
-fun Modifier.bottomInsets() = this.then(Modifier.navigationBarsPadding().imePadding())
+fun Modifier.bottomInsets() = this.then(
+	Modifier
+		.navigationBarsPadding()
+		.imePadding())
 
 val WindowInsets.Companion.None: WindowInsets
 	get() = WindowInsets(0, 0, 0, 0)

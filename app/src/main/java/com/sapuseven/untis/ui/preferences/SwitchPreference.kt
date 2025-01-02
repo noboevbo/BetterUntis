@@ -30,7 +30,11 @@ fun SwitchPreference(
 			Switch(
 				checked = value,
 				onCheckedChange = { newValue ->
-					scope.launch { dataStore.saveValue(onCheckedChange?.invoke(newValue) ?: newValue) }
+					scope.launch {
+						dataStore.saveValue(
+							onCheckedChange?.invoke(newValue) ?: newValue
+						)
+					}
 				},
 				enabled = enabled
 			)

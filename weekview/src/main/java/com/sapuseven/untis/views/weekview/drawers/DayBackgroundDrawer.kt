@@ -45,9 +45,22 @@ class DayBackgroundDrawer(private val config: WeekViewConfig) {
 			isToday -> {
 				val now = DateTime.now()
 				val minutesUntilNow = now.hourOfDay * 60 + now.minuteOfHour - config.startTime
-				canvas.drawRect(startX, startY, endX, startY + minutesUntilNow / 60.0f * config.hourHeight, pastPaint)
-				canvas.drawRect(startX, startY + minutesUntilNow / 60.0f * config.hourHeight, endX, height.toFloat(), futurePaint)
+				canvas.drawRect(
+					startX,
+					startY,
+					endX,
+					startY + minutesUntilNow / 60.0f * config.hourHeight,
+					pastPaint
+				)
+				canvas.drawRect(
+					startX,
+					startY + minutesUntilNow / 60.0f * config.hourHeight,
+					endX,
+					height.toFloat(),
+					futurePaint
+				)
 			}
+
 			day < today -> canvas.drawRect(startX, startY, endX, height.toFloat(), pastPaint)
 			else -> canvas.drawRect(startX, startY, endX, height.toFloat(), futurePaint)
 		}

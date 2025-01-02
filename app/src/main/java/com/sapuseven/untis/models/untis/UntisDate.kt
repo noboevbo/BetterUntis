@@ -14,11 +14,12 @@ import org.joda.time.format.ISODateTimeFormat
 // TODO: Change all occurrences of startDate or endDate in string format to this type
 @Serializable(UntisDate.Companion::class)
 class UntisDate(
-		val date: String
+	val date: String
 ) {
 	@Serializer(forClass = UntisDate::class)
 	companion object : KSerializer<UntisDate> {
-		override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("UntisDate", PrimitiveKind.STRING)
+		override val descriptor: SerialDescriptor =
+			PrimitiveSerialDescriptor("UntisDate", PrimitiveKind.STRING)
 
 		override fun serialize(encoder: Encoder, obj: UntisDate) {
 			encoder.encodeString(obj.date)

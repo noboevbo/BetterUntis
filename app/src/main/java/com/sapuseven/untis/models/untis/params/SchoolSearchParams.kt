@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @ExperimentalSerializationApi
 data class SchoolSearchParams(
-		@EncodeDefault(EncodeDefault.Mode.NEVER) val search: String? = null,
-		@EncodeDefault(EncodeDefault.Mode.NEVER) val schoolid: Int = 0,
-		@EncodeDefault(EncodeDefault.Mode.NEVER) val schoolname: String = ""
+	@EncodeDefault(EncodeDefault.Mode.NEVER) val search: String? = null,
+	@EncodeDefault(EncodeDefault.Mode.NEVER) val schoolid: Int = 0,
+	@EncodeDefault(EncodeDefault.Mode.NEVER) val schoolname: String = ""
 ) : BaseParams()

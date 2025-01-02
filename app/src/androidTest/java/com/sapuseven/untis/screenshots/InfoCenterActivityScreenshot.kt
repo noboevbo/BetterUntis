@@ -77,11 +77,11 @@ class InfoCenterActivityScreenshot {
 				2,
 				"...and more!",
 				"There are even more tabs with other useful information at the bottom:<br>" +
-						"<br><ul>" +
-						"  <li>&nbsp;<b>Events</b> shows all upcoming exams and homework assignments.</li>" +
-						"  <li>&nbsp;<b>Absences</b> lets you manage your absences.</li>" +
-						"  <li>&nbsp;<b>Office Hours</b> lists the available office hours for teachers.</li>" +
-						"</ul>",
+					"<br><ul>" +
+					"  <li>&nbsp;<b>Events</b> shows all upcoming exams and homework assignments.</li>" +
+					"  <li>&nbsp;<b>Absences</b> lets you manage your absences.</li>" +
+					"  <li>&nbsp;<b>Office Hours</b> lists the available office hours for teachers.</li>" +
+					"</ul>",
 				emptyList()
 			)
 		)

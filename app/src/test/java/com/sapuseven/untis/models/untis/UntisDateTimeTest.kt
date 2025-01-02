@@ -17,7 +17,8 @@ class UntisDateTimeTest {
 
 	@Test
 	fun untisDateTime_deserialization() {
-		val deserialized = getJSON().decodeFromString(UntisDateTime .serializer(), "\"2023-12-30T13:48Z\"")
+		val deserialized =
+			getJSON().decodeFromString(UntisDateTime.serializer(), "\"2023-12-30T13:48Z\"")
 
 		Assertions.assertEquals(
 			"2023-12-30T13:48Z",

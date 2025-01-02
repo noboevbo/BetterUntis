@@ -1,5 +1,4 @@
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -15,12 +14,12 @@
 		app:tint="?android:attr/textColorPrimary" />
 
 	<TextView
-			android:id="@+id/textview_base_widget_account"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center"
-			android:gravity="center"
-			android:text="@string/loading"
-			android:textColor="?android:attr/textColorPrimary"
-			android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+		android:id="@+id/textview_base_widget_account"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:text="@string/loading"
+		android:textColor="?android:attr/textColorPrimary"
+		android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 </LinearLayout>

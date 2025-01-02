@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AppSharedSecretParams(
-		val userName: String,
-		val password: String
+	val userName: String,
+	val password: String
 ) : BaseParams()

@@ -52,19 +52,32 @@ class BackgroundGridDrawer(private val config: WeekViewConfig) : BaseDrawer {
 
 		for (i in 0 until days) {
 			val start = startPixel + widthPerDay * (i + 1)
-			canvas.drawLine(start, config.drawConfig.headerHeight, start, config.drawConfig.headerHeight + height, config.drawConfig.daySeparatorPaint)
+			canvas.drawLine(
+				start,
+				config.drawConfig.headerHeight,
+				start,
+				config.drawConfig.headerHeight + height,
+				config.drawConfig.daySeparatorPaint
+			)
 		}
 	}
 
-	private fun drawHourLines(hourLines: FloatArray, startX: Float, startPixel: Float, canvas: Canvas) {
+	private fun drawHourLines(
+		hourLines: FloatArray,
+		startX: Float,
+		startPixel: Float,
+		canvas: Canvas
+	) {
 		val height = WeekView.viewHeight
 
 		var i = 0
 		for (hour in 1 until config.hourLines.size) {
 			if (config.hourLines[hour] == config.hourLines[hour - 1]) continue
 
-			val heightOfHour = config.hourHeight * (config.hourLines[hour] - config.startTime) / 60.0f
-			val top = config.drawConfig.headerHeight + config.drawConfig.currentOrigin.y + heightOfHour
+			val heightOfHour =
+				config.hourHeight * (config.hourLines[hour] - config.startTime) / 60.0f
+			val top =
+				config.drawConfig.headerHeight + config.drawConfig.currentOrigin.y + heightOfHour
 
 			val widthPerDay = config.totalDayWidth
 			val separatorWidth = config.hourSeparatorStrokeWidth

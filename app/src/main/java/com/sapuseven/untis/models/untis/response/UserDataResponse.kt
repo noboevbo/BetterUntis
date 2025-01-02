@@ -8,13 +8,13 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserDataResponse(
-		val result: UserDataResult? = null
+	val result: UserDataResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class UserDataResult(
-		val masterData: UntisMasterData,
-		val userData: UntisUserData,
-		val settings: UntisSettings? = null,
-		val messengerSettings: UntisMessengerSettings? = null
+	val masterData: UntisMasterData,
+	val userData: UntisUserData,
+	val settings: UntisSettings? = null,
+	val messengerSettings: UntisMessengerSettings? = null
 )

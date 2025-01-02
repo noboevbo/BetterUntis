@@ -15,13 +15,13 @@ class GithubIssue(type: Type, log: String) : Issue(type, log) {
 	override fun launch(context: Context) {
 		c = context
 		val uri = Uri.Builder()
-				.scheme("https")
-				.authority("github.com")
-				.path("/SapuSeven/BetterUntis/issues/new")
-				.appendQueryParameter("labels", "bug")
-				.appendQueryParameter("template", "bug-report.md")
-				.appendQueryParameter("title", generateTitle())
-				.appendQueryParameter("body", generateBody())
+			.scheme("https")
+			.authority("github.com")
+			.path("/SapuSeven/BetterUntis/issues/new")
+			.appendQueryParameter("labels", "bug")
+			.appendQueryParameter("template", "bug-report.md")
+			.appendQueryParameter("title", generateTitle())
+			.appendQueryParameter("body", generateBody())
 
 		val browserIntent = Intent(Intent.ACTION_VIEW, uri.build())
 		context.startActivity(browserIntent)
@@ -36,9 +36,10 @@ class GithubIssue(type: Type, log: String) : Issue(type, log) {
 	private val version: String
 		get() {
 			val pInfo = c.packageManager.getPackageInfo(c.packageName ?: return "", 0)
-			return c.getString(R.string.preference_info_app_version_desc,
-					pInfo.versionName,
-					PackageInfoCompat.getLongVersionCode(pInfo)
+			return c.getString(
+				R.string.preference_info_app_version_desc,
+				pInfo.versionName,
+				PackageInfoCompat.getLongVersionCode(pInfo)
 			)
 		}
 
@@ -49,16 +50,16 @@ class GithubIssue(type: Type, log: String) : Issue(type, log) {
 
 	private fun generateBody() =
 		"<details>\n" +
-		"<summary>Logs</summary>\n" +
-		"\n" +
-		"```\n" +
-		"$log\n" +
-		"```\n" +
-		"</details>\n" +
-		"\n" +
-		"**Additional information**\n" +
-		"\n" +
-		"- Android version: _${Build.VERSION.RELEASE}_\n" +
-		"- BetterUntis version: _${version}_\n" +
-		"- Installation source: _${installationSource}_"
+			"<summary>Logs</summary>\n" +
+			"\n" +
+			"```\n" +
+			"$log\n" +
+			"```\n" +
+			"</details>\n" +
+			"\n" +
+			"**Additional information**\n" +
+			"\n" +
+			"- Android version: _${Build.VERSION.RELEASE}_\n" +
+			"- BetterUntis version: _${version}_\n" +
+			"- Installation source: _${installationSource}_"
 }

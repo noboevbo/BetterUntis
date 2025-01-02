@@ -20,6 +20,7 @@ class UnknownObjectTest {
 			`is`("""[null,null,null]""")
 		)
 	}
+
 	@Test
 	fun unknownObject_deserializeListOfNullValues_producesUnknownObjectList() {
 		assertThat(

@@ -17,7 +17,9 @@ class UntisRequestTest {
 		data.jsonrpc = "data-jsonrpc"
 		data.method = "data-method"
 		data.params = listOf(SchoolSearchParams("school"))
-		assertThat(SerializationUtils.getJSON().encodeToString<UntisRequest.UntisRequestData>(data),
-				`is`("""{"id":"data-id","jsonrpc":"data-jsonrpc","method":"data-method","params":[{"search":"school"}]}""")) //,"schoolid":0,"schoolname":"" are not encoded as `@EncodeDefault(EncodeDefault.Mode.NEVER)` is set
+		assertThat(
+			SerializationUtils.getJSON().encodeToString<UntisRequest.UntisRequestData>(data),
+			`is`("""{"id":"data-id","jsonrpc":"data-jsonrpc","method":"data-method","params":[{"search":"school"}]}""")
+		) //,"schoolid":0,"schoolname":"" are not encoded as `@EncodeDefault(EncodeDefault.Mode.NEVER)` is set
 	}
 }

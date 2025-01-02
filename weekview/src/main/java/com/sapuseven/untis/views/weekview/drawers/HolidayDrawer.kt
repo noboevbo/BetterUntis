@@ -38,7 +38,12 @@ class HolidayDrawer(private val config: WeekViewConfig) : BaseDrawer {
 		canvas.translate(startFromPixel, config.drawConfig.headerHeight)
 		canvas.rotate(90f)
 
-		canvas.drawText(text, holidayPadding, (config.drawConfig.widthPerDay - bounds.height()) / -2f, config.drawConfig.holidayTextPaint)
+		canvas.drawText(
+			text,
+			holidayPadding,
+			(config.drawConfig.widthPerDay - bounds.height()) / -2f,
+			config.drawConfig.holidayTextPaint
+		)
 		canvas.restore()
 	}
 }

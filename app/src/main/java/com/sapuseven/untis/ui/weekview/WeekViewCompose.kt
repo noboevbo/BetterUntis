@@ -116,7 +116,7 @@ fun WeekViewEvent(
 					event.color,
 					size = Size(size.width, size.height),
 					division = ((currentTime.toDateTime().millis - event.start.toDateTime().millis).toFloat()
-							/ (event.end.toDateTime().millis - event.start.toDateTime().millis).toFloat())
+						/ (event.end.toDateTime().millis - event.start.toDateTime().millis).toFloat())
 						.coerceIn(0f, 1f)
 				)
 			}
@@ -322,11 +322,11 @@ fun WeekViewSidebar(
 		var lastEndTime: LocalTime? = null
 		hourList.forEach { hour ->
 			val totalHourHeight = hourHeight *
-					(Minutes.minutesBetween(hour.startTime, hour.endTime).minutes / 60f)
+				(Minutes.minutesBetween(hour.startTime, hour.endTime).minutes / 60f)
 
 			val topPadding = lastEndTime?.let {
 				hourHeight *
-						(Minutes.minutesBetween(lastEndTime, hour.startTime).minutes / 60f)
+					(Minutes.minutesBetween(lastEndTime, hour.startTime).minutes / 60f)
 			} ?: 0.dp
 
 			Box(
@@ -543,7 +543,7 @@ fun WeekViewContent(
 			}
 	) { measureables, constraints ->
 		val height = (Minutes.minutesBetween(startTime, endTime).minutes / 60f * hourHeight.toPx()
-				+ endTimeOffset).roundToInt()
+			+ endTimeOffset).roundToInt()
 		val width = constraints.maxWidth
 		val dayWidth = width / numDays;
 		val placeablesWithEvents = measureables.map { measurable ->
@@ -591,7 +591,7 @@ fun WeekViewCompose(
 		WeekViewEvent(event = it, onClick = {
 			onItemClick(
 				it.simultaneousEvents.mapNotNull { it.periodData }
-						to it.simultaneousEvents.indexOf(it)
+					to it.simultaneousEvents.indexOf(it)
 			)
 		})
 	},

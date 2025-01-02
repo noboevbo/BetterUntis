@@ -96,7 +96,13 @@ class RoomFinderDatabaseImpl internal constructor(context: Context, profileId: L
 
 		val room = RoomFinderItem(
 			cursor.getInt(cursor.getColumnIndex(BaseColumns._ID)),
-			RoomFinderItem.parseStateListFromString(cursor.getString(cursor.getColumnIndex(RoomfinderDatabaseContract.COLUMN_NAME_STATES)))
+			RoomFinderItem.parseStateListFromString(
+				cursor.getString(
+					cursor.getColumnIndex(
+						RoomfinderDatabaseContract.COLUMN_NAME_STATES
+					)
+				)
+			)
 		)
 
 		cursor.close()

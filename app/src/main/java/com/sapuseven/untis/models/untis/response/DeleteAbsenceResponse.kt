@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DeleteAbsenceResponse(
-		val result: DeleteAbsenceResult? = null
+	val result: DeleteAbsenceResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class DeleteAbsenceResult(
-		val success: Boolean
+	val success: Boolean
 )

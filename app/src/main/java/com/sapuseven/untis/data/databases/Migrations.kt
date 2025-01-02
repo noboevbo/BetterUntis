@@ -35,19 +35,19 @@ val MIGRATIONS_LEGACY = listOf(
 			db.execSQL(UserDatabaseLegacyContract.Users.SQL_CREATE_ENTRIES_V5)
 			db.execSQL(
 				"INSERT INTO ${UserDatabaseLegacyContract.Users.TABLE_NAME} SELECT " +
-						"${BaseColumns._ID}," +
-						"'', " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_APIURL}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED} " +
-						"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v4;"
+					"${BaseColumns._ID}," +
+					"'', " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_APIURL}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED} " +
+					"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v4;"
 			)
 			db.execSQL("DROP TABLE ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v4")
 		}
@@ -58,19 +58,19 @@ val MIGRATIONS_LEGACY = listOf(
 			db.execSQL(UserDatabaseLegacyContract.Users.SQL_CREATE_ENTRIES_V6)
 			db.execSQL(
 				"INSERT INTO ${UserDatabaseLegacyContract.Users.TABLE_NAME} SELECT " +
-						"${BaseColumns._ID}," +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_PROFILENAME}, " +
-						"'', " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED} " +
-						"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v5;"
+					"${BaseColumns._ID}," +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_PROFILENAME}, " +
+					"'', " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED} " +
+					"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v5;"
 			)
 			db.execSQL("DROP TABLE ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v5")
 		}
@@ -81,20 +81,20 @@ val MIGRATIONS_LEGACY = listOf(
 			db.execSQL(UserDatabaseLegacyContract.Users.SQL_CREATE_ENTRIES_V7)
 			db.execSQL(
 				"INSERT INTO ${UserDatabaseLegacyContract.Users.TABLE_NAME} SELECT " +
-						"${BaseColumns._ID}," +
-						"'', " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_APIURL}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
-						"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED}, " +
-						"'[]' " +
-						"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v6;"
+					"${BaseColumns._ID}," +
+					"'', " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_APIURL}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SCHOOL_ID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USER}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_KEY}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_ANONYMOUS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_TIMEGRID}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_MASTERDATATIMESTAMP}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_USERDATA}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_SETTINGS}, " +
+					"${UserDatabaseLegacyContract.Users.COLUMN_NAME_CREATED}, " +
+					"'[]' " +
+					"FROM ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v6;"
 			)
 			db.execSQL("DROP TABLE ${UserDatabaseLegacyContract.Users.TABLE_NAME}_v6")
 		}

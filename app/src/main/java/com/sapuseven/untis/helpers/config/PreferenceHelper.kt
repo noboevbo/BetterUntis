@@ -22,15 +22,16 @@ class PreferenceHelper(val context: Context) {
 	}
 
 	fun loadProfileId(): Long =
-			androidx.preference.PreferenceManager.getDefaultSharedPreferences(context).getLong("profile", 0L)
+		androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+			.getLong("profile", 0L)
 
 	fun saveProfileId(profileId: Long) =
-			androidx.preference.PreferenceManager.getDefaultSharedPreferences(context).edit()
-					.putLong("profile", profileId).apply()
+		androidx.preference.PreferenceManager.getDefaultSharedPreferences(context).edit()
+			.putLong("profile", profileId).apply()
 
 	fun deleteProfileId() =
-			androidx.preference.PreferenceManager.getDefaultSharedPreferences(context).edit()
-					.remove("profile").apply()
+		androidx.preference.PreferenceManager.getDefaultSharedPreferences(context).edit()
+			.remove("profile").apply()
 
 	fun deleteProfile(profileId: Long) {
 		sharedPrefs?.apply { edit().clear().apply() }
@@ -46,7 +47,8 @@ class PreferenceHelper(val context: Context) {
 		}
 	}
 
-	private fun getSharedPreferencesPath(name: String): File = File(getPreferencesDir(), "$name.xml")
+	private fun getSharedPreferencesPath(name: String): File =
+		File(getPreferencesDir(), "$name.xml")
 
 	private fun getPreferencesDir(): File = File(ContextCompat.getDataDir(context), "shared_prefs")
 
@@ -60,23 +62,48 @@ class PreferenceHelper(val context: Context) {
 		val res = context.resources
 
 		return when (T::class) {
-			String::class -> res.getString(res.getIdentifier(key + "_default", "string", context.packageName)).let { default ->
+			String::class -> res.getString(
+				res.getIdentifier(
+					key + "_default",
+					"string",
+					context.packageName
+				)
+			).let { default ->
 				(sharedPrefs?.getString(key, default) ?: default) as T
 			}
-			Int::class -> res.getInteger(res.getIdentifier(key + "_default", "integer", context.packageName)).let { default ->
+
+			Int::class -> res.getInteger(
+				res.getIdentifier(
+					key + "_default",
+					"integer",
+					context.packageName
+				)
+			).let { default ->
 				(sharedPrefs?.getInt(key, default) ?: default) as T
 			}
-			Boolean::class -> res.getBoolean(res.getIdentifier(key + "_default", "bool", context.packageName)).let { default ->
+
+			Boolean::class -> res.getBoolean(
+				res.getIdentifier(
+					key + "_default",
+					"bool",
+					context.packageName
+				)
+			).let { default ->
 				(sharedPrefs?.getBoolean(key, default) ?: default) as T
 			}
+
 			else -> throw UnsupportedOperationException("Not yet implemented")
 		}
 	}
 
 	inline operator fun <reified T : Any> get(key: String, defaultValue: T?): T = when (T::class) {
-		String::class -> (sharedPrefs?.getString(key, defaultValue as? String ?: "") ?: defaultValue) as T
+		String::class -> (sharedPrefs?.getString(key, defaultValue as? String ?: "")
+			?: defaultValue) as T
+
 		Int::class -> (sharedPrefs?.getInt(key, defaultValue as? Int ?: -1) ?: defaultValue) as T
-		Boolean::class -> (sharedPrefs?.getBoolean(key, defaultValue as? Boolean ?: false) ?: defaultValue) as T
+		Boolean::class -> (sharedPrefs?.getBoolean(key, defaultValue as? Boolean ?: false)
+			?: defaultValue) as T
+
 		else -> throw UnsupportedOperationException("Not yet implemented")
 	}
 

@@ -38,7 +38,8 @@ class UntisUserDataResultTest {
 
 	@Test
 	fun untisUserData_deserialization() {
-		val userData = getJSON().decodeFromString<UserDataResult>("""{"masterData":{"timeStamp":10,"absenceReasons":[],"departments":[],"duties":[],"eventReasons":[],"eventReasonGroups":[],"excuseStatuses":[],"holidays":[],"klassen":[],"rooms":[],"subjects":[],"teachers":[],"teachingMethods":[],"schoolyears":[],"timeGrid":{"days":[]}},"userData":{"elemType":"STUDENT","elemId":10,"displayName":"display name","schoolName":"school-name","departmentId":10,"children":[],"klassenIds":[],"rights":[]},"settings":{"showAbsenceReason":true,"showAbsenceText":false,"absenceCheckRequired":true,"defaultAbsenceReasonId":10,"defaultLatenessReasonId":20,"defaultAbsenceEndTime":"startTime","customAbsenceEndTime":"endTime"}}""")
+		val userData =
+			getJSON().decodeFromString<UserDataResult>("""{"masterData":{"timeStamp":10,"absenceReasons":[],"departments":[],"duties":[],"eventReasons":[],"eventReasonGroups":[],"excuseStatuses":[],"holidays":[],"klassen":[],"rooms":[],"subjects":[],"teachers":[],"teachingMethods":[],"schoolyears":[],"timeGrid":{"days":[]}},"userData":{"elemType":"STUDENT","elemId":10,"displayName":"display name","schoolName":"school-name","departmentId":10,"children":[],"klassenIds":[],"rights":[]},"settings":{"showAbsenceReason":true,"showAbsenceText":false,"absenceCheckRequired":true,"defaultAbsenceReasonId":10,"defaultLatenessReasonId":20,"defaultAbsenceEndTime":"startTime","customAbsenceEndTime":"endTime"}}""")
 
 		assertThat(userData.masterData.timeStamp, `is`(10L))
 

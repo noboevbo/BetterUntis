@@ -5,12 +5,12 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ExamResponse(
-		val result: ExamResult? = null
+	val result: ExamResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class ExamResult(
-		val id: Int,
-		val type: String,
-		val exams: List<UntisExam>
+	val id: Int,
+	val type: String,
+	val exams: List<UntisExam>
 )

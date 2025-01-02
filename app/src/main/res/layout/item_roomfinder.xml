@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
@@ -16,7 +15,7 @@
 		android:layout_centerVertical="true"
 		android:layout_marginStart="16dp"
 		android:contentDescription="@string/roomfinder_image_availability_indicator"
-		app:srcCompat="@android:color/transparent"/>
+		app:srcCompat="@android:color/transparent" />
 
 	<ProgressBar
 		android:id="@+id/progressbar_roomfinder_loading"
@@ -25,7 +24,7 @@
 		android:layout_height="32dp"
 		android:layout_centerVertical="true"
 		android:layout_marginStart="16dp"
-		android:visibility="gone"/>
+		android:visibility="gone" />
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -42,14 +41,14 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textColor="?android:attr/textColorPrimary"
-			android:textSize="13sp"/>
+			android:textSize="13sp" />
 
 		<TextView
 			android:id="@+id/textview_roomfinder_details"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textColor="?android:attr/textColorSecondary"
-			android:textSize="13sp"/>
+			android:textSize="13sp" />
 	</LinearLayout>
 
 	<ImageButton
@@ -61,6 +60,6 @@
 		android:layout_marginEnd="16dp"
 		android:background="?attr/selectableItemBackgroundBorderless"
 		android:contentDescription="@string/roomfinder_delete_item"
-		app:srcCompat="@drawable/roomfinder_delete"/>
+		app:srcCompat="@drawable/roomfinder_delete" />
 
 </RelativeLayout>

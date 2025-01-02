@@ -94,14 +94,15 @@ fun ColorPicker(
 			verticalAlignment = Alignment.CenterVertically,
 			modifier = Modifier.padding(top = 16.dp)
 		) {
-			Box(modifier = Modifier
-				.padding(end = 16.dp)
-				.weight(1f)
-				.height(56.dp)
-				.clip(RoundedCornerShape(4.dp))
-				.background(MaterialTheme.colorScheme.surface)
-				.background(color.toColor())
-				.border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
+			Box(
+				modifier = Modifier
+					.padding(end = 16.dp)
+					.weight(1f)
+					.height(56.dp)
+					.clip(RoundedCornerShape(4.dp))
+					.background(MaterialTheme.colorScheme.surface)
+					.background(color.toColor())
+					.border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
 			)
 
 			TextField(

@@ -20,7 +20,12 @@ internal object DateUtils {
 	 *
 	 * @return A list with all days that are within the visible week, starting with [startDay]
 	 */
-	fun getDateRange(startDay: DateTime, size: Int, weekStart: Int, weekLength: Int): List<DateTime> {
+	fun getDateRange(
+		startDay: DateTime,
+		size: Int,
+		weekStart: Int,
+		weekLength: Int
+	): List<DateTime> {
 		if (weekLength == 0) return emptyList()
 
 		val days = ArrayList<DateTime>()
@@ -93,7 +98,8 @@ internal object DateUtils {
 	 * @param dayTwo The second day.
 	 * @return `true` if the two [DateTime] objects are in the same year and on the same day of year, `false` otherwise.
 	 */
-	fun isSameDay(dayOne: DateTime, dayTwo: DateTime) = dayOne.year == dayTwo.year && dayOne.dayOfYear == dayTwo.dayOfYear
+	fun isSameDay(dayOne: DateTime, dayTwo: DateTime) =
+		dayOne.year == dayTwo.year && dayOne.dayOfYear == dayTwo.dayOfYear
 
 	/**
 	 * Returns a simple time format according to the current system settings

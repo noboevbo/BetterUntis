@@ -6,8 +6,8 @@ import android.provider.BaseColumns
 import com.sapuseven.untis.data.databases.RoomfinderDatabaseContract
 
 data class RoomFinderItem(
-		val id: Int,
-		val states: List<Boolean>
+	val id: Int,
+	val states: List<Boolean>
 ) {
 	companion object {
 		fun parseStateListFromString(states: String): List<Boolean> {
@@ -16,8 +16,14 @@ data class RoomFinderItem(
 
 		fun parseCursor(cursor: Cursor): RoomFinderItem {
 			return RoomFinderItem(
-					cursor.getInt(cursor.getColumnIndex(BaseColumns._ID)),
-					parseStateListFromString(cursor.getString(cursor.getColumnIndex(RoomfinderDatabaseContract.COLUMN_NAME_STATES)))
+				cursor.getInt(cursor.getColumnIndex(BaseColumns._ID)),
+				parseStateListFromString(
+					cursor.getString(
+						cursor.getColumnIndex(
+							RoomfinderDatabaseContract.COLUMN_NAME_STATES
+						)
+					)
+				)
 			)
 		}
 	}
@@ -26,7 +32,9 @@ data class RoomFinderItem(
 		val values = ContentValues()
 
 		values.put(BaseColumns._ID, id)
-		values.put(RoomfinderDatabaseContract.COLUMN_NAME_STATES, states.joinToString("") { if (it) "1" else "0" })
+		values.put(
+			RoomfinderDatabaseContract.COLUMN_NAME_STATES,
+			states.joinToString("") { if (it) "1" else "0" })
 
 		return values
 	}

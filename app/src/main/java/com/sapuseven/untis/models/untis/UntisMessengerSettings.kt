@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UntisMessengerSettings(
-		val serverUrl: String,
-		val organizationId: String
+	val serverUrl: String,
+	val organizationId: String
 )

@@ -12,8 +12,10 @@ import org.joda.time.DateTimeConstants.MILLIS_PER_WEEK
  * an interface that can be implemented in one's actual data class and handles the conversion to a
  * [WeekViewEvent].
  */
-class WeekLoader<T> internal constructor(private var onWeekChangeListener: WeekViewLoader.PeriodChangeListener<T>) : WeekViewLoader<T> {
-	override fun toWeekViewPeriodIndex(instance: DateTime): Long = instance.millis / MILLIS_PER_WEEK + 1
+class WeekLoader<T> internal constructor(private var onWeekChangeListener: WeekViewLoader.PeriodChangeListener<T>) :
+	WeekViewLoader<T> {
+	override fun toWeekViewPeriodIndex(instance: DateTime): Long =
+		instance.millis / MILLIS_PER_WEEK + 1
 
 	override fun onLoad(periodIndex: Int): List<WeekViewEvent<T>> {
 		val millis = periodIndex * MILLIS_PER_WEEK.toLong()

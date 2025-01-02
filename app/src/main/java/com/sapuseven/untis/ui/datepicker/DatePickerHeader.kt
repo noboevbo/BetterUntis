@@ -97,4 +97,5 @@ fun DatePickerHeader(
 	}
 }
 
-internal fun getTitleText(date: LocalDate): String = date.toString(DateTimeFormat.forPattern("MMMM y"))
+internal fun getTitleText(date: LocalDate): String =
+	date.toString(DateTimeFormat.forPattern("MMMM y"))

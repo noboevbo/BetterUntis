@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AbsencesCheckedParams(
-		val ttIds: List<Int>,
-		val auth: UntisAuth
+	val ttIds: List<Int>,
+	val auth: UntisAuth
 ) : BaseParams()

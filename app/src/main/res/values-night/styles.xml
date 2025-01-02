@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
 	<style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
 		<item name="android:windowBackground">?attr/colorSurfaceInverse</item>
 	</style>

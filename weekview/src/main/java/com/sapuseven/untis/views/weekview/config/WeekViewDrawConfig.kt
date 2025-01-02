@@ -54,9 +54,10 @@ class WeekViewDrawConfig(context: Context) {
 	val pastBackgroundPaint: Paint = Paint()
 
 	companion object {
-		private val TYPEFACE_SEMI_BOLD: Typeface = Typeface.create("sans-serif-light", Typeface.BOLD)
+		private val TYPEFACE_SEMI_BOLD: Typeface =
+			Typeface.create("sans-serif-light", Typeface.BOLD)
 	}
-	
+
 	init {
 		// Set additional permanent properties
 		timeTextTopPaint.textAlign = Paint.Align.LEFT
@@ -135,14 +136,17 @@ class WeekViewDrawConfig(context: Context) {
 			private val secondaryDatePattern = "d. MMM"
 			private val timePattern = DateUtils.getTimeFormat(context).toPattern()
 
-			override fun interpretDate(date: DateTime) = date.toString(datePattern, Locale.getDefault()).toUpperCase(Locale.getDefault())
+			override fun interpretDate(date: DateTime) =
+				date.toString(datePattern, Locale.getDefault()).toUpperCase(Locale.getDefault())
 
-			override fun interpretSecondaryDate(date: DateTime) = date.toString(secondaryDatePattern, Locale.getDefault()).toUpperCase(Locale.getDefault())
+			override fun interpretSecondaryDate(date: DateTime) =
+				date.toString(secondaryDatePattern, Locale.getDefault())
+					.toUpperCase(Locale.getDefault())
 
 			override fun interpretTime(minutes: Int) = DateTime()
-					.withHourOfDay(minutes / DateTimeConstants.MINUTES_PER_HOUR)
-					.withMinuteOfHour(minutes % DateTimeConstants.MINUTES_PER_HOUR)
-					.toString(timePattern)
+				.withHourOfDay(minutes / DateTimeConstants.MINUTES_PER_HOUR)
+				.withMinuteOfHour(minutes % DateTimeConstants.MINUTES_PER_HOUR)
+				.toString(timePattern)
 		}
 	}
 
@@ -186,7 +190,8 @@ class WeekViewDrawConfig(context: Context) {
 	}
 
 	internal fun calculateTimeTextWidth() {
-		timeTextWidth = timeTextTopPaint.measureText(dateTimeInterpreter.interpretTime(22 * 60 + 22))
+		timeTextWidth =
+			timeTextTopPaint.measureText(dateTimeInterpreter.interpretTime(22 * 60 + 22))
 	}
 
 	internal fun calculateTimeColumnWidth(config: WeekViewConfig) {

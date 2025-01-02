@@ -6,11 +6,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TimetableResponse(
-		val result: TimetableResult? = null
+	val result: TimetableResult? = null
 ) : BaseResponse()
 
 @Serializable
 data class TimetableResult(
-		val timetable: UntisTimetable,
-		val masterData: UntisMasterData
+	val timetable: UntisTimetable,
+	val masterData: UntisMasterData
 )
