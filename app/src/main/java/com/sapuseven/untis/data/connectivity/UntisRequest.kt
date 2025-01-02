@@ -3,7 +3,7 @@ package com.sapuseven.untis.data.connectivity
 import android.net.Uri
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FuelError
-import com.github.kittinunf.fuel.coroutines.awaitObjectResult
+import com.github.kittinunf.fuel.coroutines.awaitObjectResponseResult
 import com.github.kittinunf.fuel.serialization.kotlinxDeserializerOf
 import com.github.kittinunf.result.Result
 import com.sapuseven.untis.data.connectivity.UntisApiConstants.DEFAULT_WEBUNTIS_HOST
@@ -18,33 +18,30 @@ import java.net.URISyntaxException
 
 
 class UntisRequest {
-	suspend inline fun <reified T> request(query: UntisRequestQuery): Result<T, FuelError> {
-
-		return Fuel.post(query.getUri().toString())
+	suspend inline fun <reified T : Any> request(query: UntisRequestQuery): Result<T, FuelError> {
+		// println("HERE")
+		val result = Fuel.post(query.getUri().toString())
 			.header(mapOf("Content-Type" to "application/json; charset=UTF-8"))
 			.body(getJSON().encodeToString(query.data))
-			.response { _, response, _ ->
-			}
-			.awaitObjectResult(kotlinxDeserializerOf(getJSON()))
+			.awaitObjectResponseResult<T>(kotlinxDeserializerOf(getJSON()))
+		// println(result.first)
+		// println(result.second)
+		return result.third
 	}
 
 	class UntisRequestQuery(val user: User? = null, apiUrl: String? = null) {
-		var url = apiUrl ?: user?.apiUrl ?: user?.schoolId?.let {
-			"https://" + DEFAULT_WEBUNTIS_HOST + DEFAULT_WEBUNTIS_PATH + it
-		} ?: ""
+		var url = apiUrl ?: user?.apiUrl ?: user?.schoolId.let {
+			"https://$DEFAULT_WEBUNTIS_HOST$DEFAULT_WEBUNTIS_PATH$it"
+		}
 		var data: UntisRequestData = UntisRequestData()
 		var proxyHost: String? = null
 
 		@Throws(URISyntaxException::class, UnsupportedEncodingException::class)
 		fun getUri(): Uri {
 			return Uri.parse(url).buildUpon().apply {
-				if (!proxyHost.isNullOrBlank())
+				if (!proxyHost.isNullOrBlank()) {
 					authority(proxyHost)
-
-				//appendQueryParameter("m", data.method) // optional
-				appendQueryParameter("v", "a5.2.3") // required, value taken from Untis Mobile
-				//appendQueryParameter("anonymous", "true") // optional
-				//appendQueryParameter("server", "euterpe.webuntis.com") // optional
+				}
 			}.build()
 		}
 	}
