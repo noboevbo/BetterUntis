@@ -586,7 +586,7 @@ fun TimetableItemDetailsDialog(
 						}
 
 						lessonTopicEditDialog?.let { id ->
-							var text by rememberSaveable { mutableStateOf("") }
+							var text by rememberSaveable { mutableStateOf(lessonTopicNew ?: "") }
 							var loading by rememberSaveable { mutableStateOf(false) }
 							var dialogError by rememberSaveable { mutableStateOf<String?>(null) }
 
