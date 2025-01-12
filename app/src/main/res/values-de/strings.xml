@@ -317,7 +317,7 @@
 	<string name="all_hint_tap_to_edit">(Tippen um zu bearbeiten)</string>
 	<string name="all_dialog_crash_copied">Absturzprotokoll wurde in die Zwischenablage kopiert.</string>
 	<string name="all_dialog_crash_title">Absturzprotokoll gefunden</string>
-	<string name="all_lessontopic_edit">Lehrstof bearbeiten</string>
+	<string name="all_lessontopic_edit">Lehrstoff bearbeiten</string>
 	<string name="all_lessontopic_none">(Kein Lehrstoff)</string>
 	<string name="main_dialog_itemdetails_timeformat">%1$s - %2$s</string>
 	<string name="main_dialog_delete_bookmark">Dieses Lesezeichen löschen?</string>

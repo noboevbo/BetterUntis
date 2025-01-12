@@ -294,7 +294,7 @@ fun TimetableItemDetailsDialog(
 
 					var lessonTopicEditDialog by rememberSaveable { mutableStateOf<Int?>(null) }
 
-					var lessonTopicNew by rememberSaveable { mutableStateOf<String?>(null) }
+					var lessonTopic by rememberSaveable { mutableStateOf<String>("") }
 
 					Column(
 						horizontalAlignment = Alignment.CenterHorizontally,
@@ -549,10 +549,11 @@ fun TimetableItemDetailsDialog(
 										Text(stringResource(id = R.string.all_lessontopic))
 									},
 									supportingContent = {
-										val topic = lessonTopicNew ?: it.topic?.text
-
+										if (lessonTopic.isBlank()) {
+											lessonTopic = it.topic?.text ?: "";
+										}
 										Text(
-											if (topic.isNullOrBlank())
+											lessonTopic.ifBlank {
 												if (periodData.element.can.contains(
 														CAN_WRITE_LESSON_TOPIC
 													)
@@ -560,8 +561,7 @@ fun TimetableItemDetailsDialog(
 													stringResource(R.string.all_hint_tap_to_edit)
 												else
 													stringResource(R.string.all_lessontopic_none)
-											else
-												topic
+											}
 										)
 									},
 									leadingContent = {
@@ -586,10 +586,9 @@ fun TimetableItemDetailsDialog(
 						}
 
 						lessonTopicEditDialog?.let { id ->
-							var text by rememberSaveable { mutableStateOf(lessonTopicNew ?: "") }
+							var text by rememberSaveable { mutableStateOf(lessonTopic ?: "") }
 							var loading by rememberSaveable { mutableStateOf(false) }
 							var dialogError by rememberSaveable { mutableStateOf<String?>(null) }
-
 							DynamicHeightAlertDialog(
 								title = { Text(stringResource(id = R.string.all_lessontopic_edit)) },
 								text = {
@@ -627,7 +626,7 @@ fun TimetableItemDetailsDialog(
 
 											scope.launch {
 												submitLessonTopic(user, id, text).fold({
-													lessonTopicNew = it
+													lessonTopic = text
 													lessonTopicEditDialog = null
 												}, {
 													dialogError = it.message
